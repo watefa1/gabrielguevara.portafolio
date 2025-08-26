@@ -1,14 +1,36 @@
-<header class="text-center p-6 bg-blue-600 text-white">
-  <h1 class="text-4xl font-bold">Hola, soy Gabriel</h1>
-  <p>Artista y diseñador 3D</p>
+<body>
+
+<nav aria-label="Navegación de paginación">
+  <div class="flex space-x-2 justify-center my-4">
+    <a href="#app-sobre-mi">
+      <button class="px-4 py-2 rounded bg-blue-600 text-white font-bold border border-blue-700 shadow active:bg-blue-800">Sobre Mi</button>
+    </a>
+    <a href="#app-proyectos">
+      <button class="px-4 py-2 rounded bg-gray-200 text-blue-600 font-bold border border-blue-300 shadow hover:bg-blue-100">Proyectos</button>
+    </a>
+    <a href="#app-contacto">
+      <button class="px-4 py-2 rounded bg-gray-200 text-blue-600 font-bold border border-blue-300 shadow hover:bg-blue-100">Contacto</button>
+    </a>
+  </div>
+</nav>
+
+<header class="flex items-center justify-center text-center bg-blue-600 text-white h-screen">
+  <h1 class="text-6xl md:text-8xl font-bold">
+    Full Stack Developer
+  </h1>
+    <h4 class="text-6xl md:text-8xl font-bold">
+    Hola, me llamo Gabriel Esteban Guevara y soy desarrollador Full Stack. <p>
+      Bienvenido a mi portafolio, donde vas a conocer un poco de las herramientas y tecnologias que conozco.
+  </h4>
 </header>
 
 <main class="p-6">
-  <app-sobre-mi></app-sobre-mi>
-  <app-proyectos></app-proyectos>
-  <app-contacto></app-contacto>
+  <app-sobre-mi id="app-sobre-mi"></app-sobre-mi>
+  <app-proyectos id="app-proyectos"></app-proyectos>
+  <app-contacto id="app-contacto"></app-contacto>
 </main>
 
 <footer class="text-center p-4 bg-gray-200">
   <p>© 2025 Gabriel Guevara</p>
 </footer>
+</body>
