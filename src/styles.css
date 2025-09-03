@@ -2,3 +2,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+h3 {
+  color: rgb(1, 196, 255);
+}
+
+p {
+  color: rgb(214, 202, 202);
+  font-size: 1.2rem;
+  line-height: 1.6;
+} 

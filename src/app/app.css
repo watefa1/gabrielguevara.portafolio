@@ -1,13 +1,24 @@
-h1 {
-    color:rgb(1, 196, 255);
+h1, header h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  color: rgb(1, 196, 255);
 }
 
-h4 {
-    color:rgb(1, 196, 255);
+h4, header h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(1, 196, 255);
+  margin-top: 20px;
+}
+
+footer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 body {
-  background-color: #e9dcdc;
+  background-color: #000000;
   margin: 0;
   font-family: Arial, sans-serif;
 }
@@ -19,19 +30,120 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #e9dcdc; 
-  color: white;
+  padding-top: 96px;
+  box-sizing: border-box;
 }
 
-header h1 {
-  font-size: 6rem;
-  font-weight: bold;
-  color: rgb(1, 196, 255);
+nav[aria-label="Navegación de paginación"] {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 25, 25, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 24px rgba(1,196,255,0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header h4 {
-  font-size: 20px;
-  font-weight: bold;
-  color: rgb(1, 196, 255);
-  margin-top: 20px;
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgb(200, 200, 200);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  background: rgba(1,196,255,0.1);
+  box-shadow: 0 0 12px rgba(1,196,255,0.5);
+  text-shadow: 0 0 8px rgb(1,196,255), 0 0 16px rgb(1,196,255);
+}
+
+.nav-links a.active {
+  color: #fff;
+  background: rgba(1,196,255,0.2);
+  box-shadow: 0 0 16px rgba(1,196,255,0.7);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: rgb(1,196,255);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+header > div {
+  background: rgba(26, 25, 25, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px 60px;
+  box-shadow: 0 8px 24px rgba(1,196,255,0.3);
+  max-width: 900px; 
+  margin: auto;
+}
+
+main > * {
+  background: rgba(26, 25, 25, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 24px rgba(1,196,255,0.2);
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(200,200,200);
+}
+
+.glass-container {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(200,200,200);
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(26,25,25,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 24px rgba(1,196,255,0.2);
+}
+
+#app-sobre-mi,
+#app-proyectos,
+#app-contacto {
+  scroll-margin-top: 100px;
+  display: block; 
 }
