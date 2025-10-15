@@ -23,6 +23,26 @@ export class App implements AfterViewInit {
         const targetId = (link as HTMLAnchorElement).getAttribute('href');
         if (!targetId) return;
 
+
+        // Remover 'active' de todas las cards principales
+        document.querySelectorAll('.proyecto-card.active, .sobre-mi-container.active, #app-contacto.active').forEach(card => {
+          card.classList.remove('active');
+        });
+
+        // Activar la card correspondiente según la sección
+        if (targetId === '#app-proyectos') {
+          const card = document.querySelector('.proyecto-card');
+          if (card) card.classList.add('active');
+        }
+        if (targetId === '#app-sobre-mi') {
+          const card = document.querySelector('.sobre-mi-container');
+          if (card) card.classList.add('active');
+        }
+        if (targetId === '#app-contacto') {
+          const card = document.querySelector('#app-contacto');
+          if (card) card.classList.add('active');
+        }
+
         const targetEl = document.querySelector(targetId) as HTMLElement;
         if (!targetEl) return;
 
