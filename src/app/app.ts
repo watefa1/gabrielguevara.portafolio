@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { SobreMi } from "./sobre-mi/sobre-mi";
 import { Proyectos } from "./proyectos/proyectos";
 import { Contacto } from "./contacto/contacto";
+import { Skills } from "./skills/skills";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SobreMi, Proyectos, Contacto],
+  imports: [RouterOutlet, SobreMi, Proyectos, Skills, Contacto],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -23,6 +24,7 @@ export class App implements AfterViewInit {
         nav: {
           sobreMi: 'Sobre mí',
           proyectos: 'Proyectos',
+          skills: 'Habilidades',
           contacto: 'Contacto',
         },
         header: {
@@ -61,6 +63,7 @@ export class App implements AfterViewInit {
         nav: {
           sobreMi: 'About Me',
           proyectos: 'Projects',
+          skills: 'Skills',
           contacto: 'Contact',
         },
         header: {
@@ -102,7 +105,21 @@ export class App implements AfterViewInit {
     function setLang(lang: 'es' | 'en') {
       document.getElementById('nav-sobre-mi')!.textContent = translations[lang].nav.sobreMi;
       document.getElementById('nav-proyectos')!.textContent = translations[lang].nav.proyectos;
+      document.getElementById('nav-skills')!.textContent = translations[lang].nav.skills;
       document.getElementById('nav-contacto')!.textContent = translations[lang].nav.contacto;
+      // Skills/Habilidades
+      const skillsTitle = document.querySelector('#app-skills .skills-title');
+      if (skillsTitle) skillsTitle.textContent = translations[lang].nav.skills;
+      // CV buttons
+      const cvBtnEs = document.getElementById('cv-btn-es');
+      const cvBtnEn = document.getElementById('cv-btn-en');
+      if (lang === 'es') {
+        if (cvBtnEs) cvBtnEs.style.display = '';
+        if (cvBtnEn) cvBtnEn.style.display = 'none';
+      } else {
+        if (cvBtnEs) cvBtnEs.style.display = 'none';
+        if (cvBtnEn) cvBtnEn.style.display = '';
+      }
       document.getElementById('header-title')!.textContent = translations[lang].header.title;
       document.getElementById('header-subtitle')!.textContent = translations[lang].header.subtitle;
       document.getElementById('header-desc')!.textContent = translations[lang].header.desc;

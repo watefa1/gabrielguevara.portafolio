@@ -23,6 +23,95 @@
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(1,196,255,0.3);
   flex-shrink: 0;
+  position: relative;
+}
+.foto-perfil::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 32px 8px #19f3ff, 0 0 64px 16px #ff2fd0;
+  animation: avatar-glow 2s infinite alternate;
+  z-index: 1;
+}
+@keyframes avatar-glow {
+  0% { box-shadow: 0 0 32px 8px #19f3ff, 0 0 64px 16px #ff2fd0; }
+  50% { box-shadow: 0 0 48px 16px #ff2fd0, 0 0 32px 8px #19f3ff; }
+  100% { box-shadow: 0 0 32px 8px #19f3ff, 0 0 64px 16px #ff2fd0; }
+}
+.skills-cv-container {
+  margin-top: 40px;
+  background: rgba(26,25,25,0.7);
+  border-radius: 18px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 24px rgba(1,196,255,0.15);
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.skills-title {
+  color: #19f3ff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px 32px;
+  justify-content: center;
+  margin-bottom: 32px;
+  width: 100%;
+}
+.skill-badge {
+  background: #222e38;
+  color: #19f3ff;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 120px;
+  box-shadow: 0 2px 8px rgba(1,196,255,0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.skill-bar {
+  width: 100px;
+  height: 8px;
+  background: #333;
+  border-radius: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #19f3ff, #ff2fd0);
+  border-radius: 6px;
+  transition: width 0.7s;
+}
+.cv-download-btn {
+  display: inline-block;
+  margin-top: 18px;
+  background: #19f3ff;
+  color: #222;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(1,196,255,0.15);
+  transition: background 0.2s, color 0.2s;
+}
+.cv-download-btn:hover {
+  background: #ff2fd0;
+  color: #fff;
 }
 
 .foto-perfil img {
