@@ -1,20 +1,20 @@
 <section id="app-contacto">
-  <h2>Contacto</h2>
+  <h2 id="contacto-title">Contacto</h2>
 
   <form class="glass-form" action="https://formspree.io/f/xblazovg" method="POST">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+  <label id="contacto-label-email" for="email">Email</label>
+  <input type="email" id="email" name="email" required placeholder="tu@email.com" data-ph="contacto-ph-email">
 
-    <label for="subject">Asunto</label>
-    <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje">
+  <label id="contacto-label-subject" for="subject">Asunto</label>
+  <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje" data-ph="contacto-ph-subject">
 
-    <label for="message">Mensaje</label>
-    <textarea id="message" name="message" rows="5" required placeholder="Mensaje..."></textarea>
+  <label id="contacto-label-message" for="message">Mensaje</label>
+  <textarea id="message" name="message" rows="5" required placeholder="Mensaje..." data-ph="contacto-ph-message"></textarea>
 
-    <button type="submit">Enviar</button>
+  <button type="submit" id="contacto-btn">Enviar</button>
   </form>
 
- <p>O podes encontrarme en:</p>
+ <p id="contacto-social-label">O podes encontrarme en:</p>
   <div class="social-buttons">
     <a href="https://www.linkedin.com/in/gabriel-guevara-g/" target="_blank" class="social-btn linkedin-btn">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
