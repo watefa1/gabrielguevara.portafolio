@@ -1,0 +1,24 @@
+/* Skills sección: evitar desbordamiento lateral en móviles */
+.skills-cv-container {
+  max-width: 100vw;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+@media (max-width: 768px) {
+  .skills-cv-container {
+    max-width: 100vw;
+    width: 100vw;
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .skills-list {
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+}

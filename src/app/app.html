@@ -1,17 +1,53 @@
-<nav aria-label="Navegación de paginación">
-  <div class="nav-links">
-  <a href="#app-sobre-mi" id="nav-sobre-mi">Sobre mí</a>
-  <a href="#app-proyectos" id="nav-proyectos">Proyectos</a>
-  <a href="#app-skills" id="nav-skills">Skills</a>
-  <a href="#app-contacto" id="nav-contacto">Contacto</a>
-    <div class="lang-switcher">
-      <select id="lang-select">
-        <option value="es">ES</option>
-        <option value="en">EN</option>
-      </select>
-    </div>
+<nav class="navbar">
+  <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" [class.open]="menuOpen">
+  <a id="nav-sobre-mi" href="#app-sobre-mi" (click)="closeMenu()">Sobre mí</a>
+  <a id="nav-proyectos" href="#app-proyectos" (click)="closeMenu()">Proyectos</a>
+  <a id="nav-skills" href="#app-skills" (click)="closeMenu()">Skills</a>
+  <a id="nav-contacto" href="#app-contacto" (click)="closeMenu()">Contacto</a>
+     <button class="settings-btn" (click)="openSettingsModal()" aria-label="Ajustes">
+       <span class="settings-icon">&#9881;</span>
+     </button>
   </div>
 </nav>
+
+<div class="settings-modal" [class.open]="settingsModalOpen">
+  <div class="settings-modal-content">
+    <h3>Settings / Ajustes</h3>
+    <div class="settings-option">
+      <label for="lang-select-modal">Language / Idioma:</label>
+      <select id="lang-select-modal">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <div class="settings-option">
+      <label for="theme-select">Theme / Tema:</label>
+      <select id="theme-select">
+        <option value="oscuro">Dark / Oscuro</option>
+        <option value="claro">Light / Claro</option>
+      </select>
+    </div>
+    <button class="close-modal-btn" (click)="closeSettingsModal()">Cerrar</button>
+  </div>
+</div>
+
+<script>
+  // Simple JS para mostrar/ocultar el menú en móviles
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+  });
+</script>
 
 <header>
   <div>
@@ -19,11 +55,14 @@
       Full Stack Web Developer
     </h1>
     <h4 id="header-subtitle" class="text-2xl md:text-4xl font-bold mt-4">
-      Hola, me llamo Gabriel Esteban Guevara.
+      Hola, me llamo
     </h4>
-    <p id="header-desc" class="mt-4 max-w-lg mx-auto text-center text-gray-300 text-lg leading-relaxed">
+    <h2 id="header-title" class="text-6xl md:text-8xl font-bold">
+       Gabriel Esteban Guevara
+    </h2>
+    <h4 id="header-desc" class="mt-4 max-w-lg mx-auto text-center text-gray-300 text-lg leading-relaxed">
       Bienvenido a mi portfolio, un espacio para conocer un poco sobre las herramientas y las tecnologías que manejo.
-    </p>
+    </h4>
   </div>
 </header>
 
@@ -46,5 +85,5 @@
 </main>
 
   <footer class="text-center p-4 bg-gray-200">
-    <p id="footer-text">© 2025 Gabriel Esteban Guevara</p>
+  <p id="footer-text">© 2025 Gabriel Esteban Guevara</p>
   </footer>
