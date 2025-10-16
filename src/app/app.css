@@ -271,14 +271,16 @@ header h1 {
   }
   .navbar {
   min-width: 0;
-  width: 100%;
+  width: 90%;
   max-width: 900px;
   margin: 0 auto;
   box-sizing: border-box;
   padding-left: 0;
   padding-right: 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   background: rgba(26, 25, 25, 0.95);
   box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
