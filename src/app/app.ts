@@ -180,8 +180,9 @@ export class App implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const nav = document.querySelector('nav') as HTMLElement;
-    const navHeight = nav.offsetHeight + 20;
+  const nav = document.querySelector('nav') as HTMLElement;
+  const navHeight = nav.offsetHeight + 20;
+  const centerOffset = window.innerHeight / 4; // Ajusta este valor para centrar más o menos
 
     const langSelectModal = document.getElementById('lang-select-modal') as HTMLSelectElement;
     if (langSelectModal) {
@@ -208,7 +209,14 @@ export class App implements AfterViewInit {
         if (!targetEl) return;
 
         const elementTop = targetEl.getBoundingClientRect().top + window.scrollY;
-        const scrollTo = elementTop - navHeight;
+        let scrollTo;
+        if (targetId === '#app-sobre-mi') {
+          scrollTo = elementTop - navHeight - centerOffset;
+        } else if (targetId === '#app-proyectos') {
+          scrollTo = elementTop - navHeight; // Offset menor para que quede más arriba
+        } else if (targetId === '#app-skills') {
+          scrollTo = elementTop - navHeight - centerOffset;
+        }
         window.scrollTo({ top: scrollTo, behavior: 'smooth' });
         this.closeMenu();
       });
