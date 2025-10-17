@@ -106,28 +106,28 @@
   margin-top: 8px;
   overflow: hidden;
 }
+.btn-proyecto {
+  background: #111;
+  color: #19f3ff;
+  padding: 0.7em 1.5em;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #19f3ff;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.btn-proyecto:hover {
+  background: #19f3ff;
+  color: #111;
+}
 .skill-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, #19f3ff, #ff2fd0);
   border-radius: 6px;
   transition: width 0.7s;
-}
-.cv-download-btn {
-  display: inline-block;
-  margin-top: 18px;
-  background: #19f3ff;
-  color: #222;
-  font-weight: bold;
-  padding: 12px 32px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(1,196,255,0.15);
-  transition: background 0.2s, color 0.2s;
-}
-.cv-download-btn:hover {
-  background: #ff2fd0;
-  color: #fff;
-}
+}s
 
 .foto-perfil img {
   width: 100%;

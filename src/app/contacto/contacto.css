@@ -51,20 +51,22 @@ p {
   box-shadow: 0 0 12px rgba(1,196,255,0.5);
 }
 
-.glass-form button {
-  background: rgb(1,196,255);
-  color: #000;
-  font-weight: bold;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
 
-.glass-form button:hover {
-  background: rgba(1,196,255,0.8);
-  box-shadow: 0 0 12px rgba(1,196,255,0.7);
+.btn-proyecto {
+  background: #111;
+  color: #19f3ff;
+  padding: 0.7em 1.5em;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #19f3ff;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.btn-proyecto:hover {
+  background: #19f3ff;
+  color: #111;
 }
 
 .social-buttons {
