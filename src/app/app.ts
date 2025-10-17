@@ -59,7 +59,7 @@ export class App implements AfterViewInit {
       },
       header: {
         title: 'Full Stack Web Developer',
-        subtitle: 'Hola, me llamo Gabriel Esteban Guevara.',
+        subtitle: 'Hola, me llamo...',
         desc: 'Bienvenido a mi portfolio, un espacio para conocer un poco sobre las herramientas y las tecnologías que manejo.'
       },
       footer: '© 2025 Gabriel Esteban Guevara',
@@ -98,7 +98,7 @@ export class App implements AfterViewInit {
       },
       header: {
         title: 'Full Stack Web Developer',
-        subtitle: "Hi, I'm Gabriel Esteban Guevara.",
+        subtitle: "Hi, I'm...",
         desc: 'Welcome to my portfolio, a space to discover the tools and technologies I use.'
       },
       footer: '© 2025 Gabriel Esteban Guevara',
