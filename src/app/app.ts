@@ -132,7 +132,7 @@ export class App implements AfterViewInit {
 
   setLang(lang: 'es' | 'en') {
     const t = this.translations[lang];
-    const ids = {
+  const ids = {
       'nav-sobre-mi': t.nav.sobreMi,
       'nav-proyectos': t.nav.proyectos,
       'nav-skills': t.nav.skills,
@@ -156,12 +156,26 @@ export class App implements AfterViewInit {
       'contacto-label-subject': t.contacto.labelSubject,
       'contacto-label-message': t.contacto.labelMessage,
       'contacto-btn': t.contacto.btn,
-      'contacto-social-label': t.contacto.socialLabel,
+  'contacto-social-label': t.contacto.socialLabel,
+  'skills-title': t.nav.skills,
     };
 
     for (const id in ids) {
       const el = document.getElementById(id);
       if (el) el.textContent = ids[id as keyof typeof ids] as string;
+    }
+
+    // Mostrar/ocultar botón de CV según idioma
+    const cvBtnEs = document.getElementById('cv-btn-es');
+    const cvBtnEn = document.getElementById('cv-btn-en');
+    if (cvBtnEs && cvBtnEn) {
+      if (lang === 'es') {
+        cvBtnEs.style.display = '';
+        cvBtnEn.style.display = 'none';
+      } else {
+        cvBtnEs.style.display = 'none';
+        cvBtnEn.style.display = '';
+      }
     }
 
     const phs = {
@@ -215,7 +229,9 @@ export class App implements AfterViewInit {
         } else if (targetId === '#app-proyectos') {
           scrollTo = elementTop - navHeight; // Offset menor para que quede más arriba
         } else if (targetId === '#app-skills') {
-          scrollTo = elementTop - navHeight - centerOffset;
+          scrollTo = elementTop - navHeight;
+        } else if (targetId === '#app-contacto') {
+          scrollTo = elementTop - navHeight;
         }
         window.scrollTo({ top: scrollTo, behavior: 'smooth' });
         this.closeMenu();
