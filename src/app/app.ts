@@ -36,8 +36,9 @@ export class App implements AfterViewInit {
         contacto: 'Contacto',
       },
       header: {
-        title: 'Full Stack Web Developer',
+        title: 'Gabriel Esteban Guevara',
         subtitle: 'Hola, me llamo...',
+        subtitle2: 'a',
         desc: 'Bienvenido a mi portfolio, un espacio para conocer un poco sobre las herramientas y las tecnologías que manejo.'
       },
       footer: '© 2025 Gabriel Esteban Guevara',
@@ -50,7 +51,7 @@ export class App implements AfterViewInit {
         cardTitle: 'Catálogo Web Profesional',
         cardDesc: 'Desarrollo integral de una plataforma web para catálogo de productos, optimizada para alto rendimiento y posicionamiento SEO. El proyecto incluyó el diseño UI/UX, adquisición y configuración de dominio y hosting, implementación de base de datos, desarrollo backend y frontend, y puesta en producción.',
         rolLabel: 'Rol:',
-        rol: 'Full Stack Developer',
+        rol: 'Desarrollador Web Full Stack',
         respLabel: 'Responsabilidades:',
         resp: 'Diseño, desarrollo, arquitectura, compra de dominio y hosting, configuración de base de datos, optimización SEO, despliegue y mantenimiento.',
         btn: 'Ver Proyecto'
@@ -75,8 +76,9 @@ export class App implements AfterViewInit {
         contacto: 'Contact',
       },
       header: {
-        title: 'Full Stack Web Developer',
+        title: 'Gabriel Esteban Guevara',
         subtitle: "Hi, I'm...",
+        subtitle2: 'a',
         desc: 'Welcome to my portfolio, a space to discover the tools and technologies I use.'
       },
       footer: '© 2025 Gabriel Esteban Guevara',
@@ -89,7 +91,7 @@ export class App implements AfterViewInit {
         cardTitle: 'Professional Web Catalog',
         cardDesc: 'Comprehensive development of a web platform for product catalog, optimized for high performance and SEO. The project included UI/UX design, domain and hosting setup, database implementation, backend and frontend development, and deployment.',
         rolLabel: 'Role:',
-        rol: 'Full Stack Developer',
+        rol: 'Full Stack Web Developer',
         respLabel: 'Responsibilities:',
         resp: 'Design, development, architecture, domain and hosting purchase, database setup, SEO optimization, deployment and maintenance.',
         btn: 'View Project'
@@ -117,6 +119,7 @@ export class App implements AfterViewInit {
       'nav-contacto': t.nav.contacto,
       'header-title': t.header.title,
       'header-subtitle': t.header.subtitle,
+      'header-subtitle2': t.header.subtitle2,
       'header-desc': t.header.desc,
       'footer-text': t.footer,
       'sobre-mi-title': t.sobreMi.title,

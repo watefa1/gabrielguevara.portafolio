@@ -1,3 +1,54 @@
+@media (max-width: 768px) {
+  .hero-btns {
+    align-items: center !important;
+    gap: 1rem !important;
+    max-width: 100vw;
+    box-sizing: border-box;
+    margin-top: 1.5rem !important;
+  }
+  .btn-hero {
+    width: 100vw;
+    max-width: 300px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1em 0;
+  }
+  header > div {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+.btn-hero {
+  font-size: 1.15rem;
+  padding: 0.9em 2.2em;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 16px rgba(25,243,255,0.10);
+  border: 2px solid #19f3ff;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-hero-primary {
+  background: #19f3ff;
+  color: #111;
+}
+.btn-hero-primary:hover {
+  background: #111;
+  color: #19f3ff;
+  box-shadow: 0 4px 24px #19f3ff44;
+}
+.btn-hero-secondary {
+  background: #fff;
+  color: #000000;
+  border: 2px solid #19f3ff;
+}
+.btn-hero-secondary:hover {
+  background: #19f3ff;
+  color: #fff;
+  box-shadow: 0 4px 24px #19f3ff44;
+}
 .lang-btn {
   background: #19f3ff;
   color: #111;
@@ -84,7 +135,7 @@
 @media (max-width: 768px) {
   nav {
     position: relative;
-    width: 100vw;
+    width: 95vw;
     background: rgba(26, 25, 25, 0.95);
     box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
     border-radius: 0 0 12px 12px;
@@ -94,13 +145,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 95vw;
     position: static;
     background: none;
     box-shadow: none;
-    padding: 0;
+    padding: 10;
     border-radius: 0;
-    gap: 13px;
+    gap: 9px;
   }
   .nav-links a {
     padding: 5px 5px;
@@ -108,6 +159,7 @@
     color: #fff;
     font-size: 1em;
     border-bottom: none;
+    text-decoration: none;
     width: auto;
     background: none;
     border-radius: 999px;
@@ -284,7 +336,7 @@ header h1 {
 }
 header h2 {
   font-size: 4rem;
-  color: #19f3ff;
+  color: #e3ecec;
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }

@@ -33,18 +33,24 @@
 
 <header>
   <div>
-    <h1 id="header-title" class="text-6xl md:text-8xl font-bold">
-      Full Stack Web Developer
-    </h1>
     <h4 id="header-subtitle" class="text-2xl md:text-4xl font-bold mt-4">
       Hola, me llamo
     </h4>
+    <h1 id="header-title" class="text-6xl md:text-8xl font-bold">
+      Gabriel Esteban Guevara
+    </h1>
     <h2 id="header-title" class="text-6xl md:text-8xl font-bold">
-       Gabriel Esteban Guevara
+      Full Stack Web Developer
     </h2>
     <h4 id="header-desc" class="mt-4 max-w-lg mx-auto text-center text-gray-300 text-lg leading-relaxed">
       Bienvenido a mi portfolio, un espacio para conocer un poco sobre las herramientas y las tecnologías que manejo.
     </h4>
+    <div class="hero-btns" style="display:flex; gap:1.5rem; justify-content:center; margin-top:2rem;">
+  <a href="#app-proyectos" class="btn-hero btn-hero-primary" *ngIf="lang === 'es'">Ver Proyectos</a>
+  <a href="#app-proyectos" class="btn-hero btn-hero-primary" *ngIf="lang === 'en'">View Projects</a>
+  <a href="assets/cv_gabrielguevara_es.pdf" download class="btn-hero btn-hero-secondary" *ngIf="lang === 'es'">Descargar CV</a>
+  <a href="assets/cv-gabriel-guevara.pdf" download class="btn-hero btn-hero-secondary" *ngIf="lang === 'en'">Download CV</a>
+    </div>
   </div>
 </header>
 
