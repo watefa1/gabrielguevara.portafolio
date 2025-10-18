@@ -12,14 +12,15 @@
 
   
   <button type="submit" id="contacto-btn" class="btn-proyecto" style="margin-top:0.7em;">{{ lang === 'es' ? 'Enviar' : 'Send' }}</button>
-  <div style="display:flex;align-items:center;justify-content:center;gap:0.7em;margin-top:1.2em;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:0.7em;margin-top:1.2em;flex-wrap:wrap;">
     <input type="checkbox" id="priv-check" name="priv-check" required style="accent-color:#19f3ff;width:1.2em;height:1.2em;">
-    <label for="priv-check" style="font-size:0.98em;cursor:pointer;">
-      {{ lang === 'es' ? 'He leído y acepto la política de privacidad' : 'I have read and accept the privacy policy' }}
+    <label for="priv-check" style="font-size:0.98em;cursor:pointer;display:flex;align-items:center;gap:0.3em;">
+      <span *ngIf="lang === 'es'">He leído y acepto la</span>
+      <span *ngIf="lang === 'en'">I have read and accept the</span>
+      <a href="#" class="priv-link" (click)="$event.preventDefault(); showPrivModal=true" style="color:#19f3ff; text-decoration:underline; font-size:0.98em; margin-left:2px;">
+        {{ lang === 'es' ? 'política de privacidad' : 'privacy policy' }}
+      </a>
     </label>
-  </div>
-  <div style="text-align:center; margin-top:18px;">
-  <a href="#" class="priv-link" (click)="$event.preventDefault(); showPrivModal=true" style="font-size:0.98em; color:#19f3ff; text-decoration:underline;">{{ lang === 'es' ? 'Política de privacidad' : 'Privacy Policy' }}</a>
   </div>
 </form>
 
