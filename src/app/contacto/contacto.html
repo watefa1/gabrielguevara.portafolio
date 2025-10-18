@@ -10,8 +10,34 @@
   <label id="contacto-label-message" for="message">Mensaje</label>
   <textarea id="message" name="message" rows="5" required placeholder="Mensaje..." data-ph="contacto-ph-message"></textarea>
 
-  <button type="submit" id="contacto-btn" class="btn-proyecto">Enviar</button>
-  </form>
+  
+  <button type="submit" id="contacto-btn" class="btn-proyecto" style="margin-top:0.7em;">{{ lang === 'es' ? 'Enviar' : 'Send' }}</button>
+  <div style="display:flex;align-items:center;justify-content:center;gap:0.7em;margin-top:1.2em;">
+    <input type="checkbox" id="priv-check" name="priv-check" required style="accent-color:#19f3ff;width:1.2em;height:1.2em;">
+    <label for="priv-check" style="font-size:0.98em;cursor:pointer;">
+      {{ lang === 'es' ? 'He leído y acepto la política de privacidad' : 'I have read and accept the privacy policy' }}
+    </label>
+  </div>
+  <div style="text-align:center; margin-top:18px;">
+  <a href="#" class="priv-link" (click)="$event.preventDefault(); showPrivModal=true" style="font-size:0.98em; color:#19f3ff; text-decoration:underline;">{{ lang === 'es' ? 'Política de privacidad' : 'Privacy Policy' }}</a>
+  </div>
+</form>
+
+<div class="priv-modal" *ngIf="showPrivModal" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;">
+  <div style="background:#222;padding:2rem 1.5rem;border-radius:16px;max-width:400px;color:#fff;box-shadow:0 8px 32px #19f3ff44;position:relative;">
+    <button (click)="showPrivModal=false" style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.5em;color:#19f3ff;cursor:pointer;">&times;</button>
+  <div *ngIf="lang === 'es'">
+      <h3 style="margin-bottom:1rem;">Política de privacidad</h3>
+      <p>El email proporcionado será utilizado únicamente para responder a tus consultas. No se compartirá con terceros ni se usará para fines comerciales. Tu información será tratada con estricta confidencialidad y solo se almacenará el tiempo necesario para gestionar tu consulta.</p>
+      <p>Si tienes dudas sobre el tratamiento de tus datos, puedes consultarme directamente.</p>
+    </div>
+  <div *ngIf="lang === 'en'">
+      <h3 style="margin-bottom:1rem;">Privacy Policy</h3>
+      <p>The email you provide will be used solely to respond to your inquiries. It will not be shared with third parties or used for commercial purposes. Your information will be handled with strict confidentiality and only stored as long as needed to manage your request.</p>
+      <p>If you have questions about data handling, feel free to ask me directly.</p>
+    </div>
+  </div>
+</div>
 
  <p id="contacto-social-label">O podes encontrarme en:</p>
   <div class="social-buttons">

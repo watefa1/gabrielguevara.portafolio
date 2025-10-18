@@ -24,6 +24,9 @@ export class App implements AfterViewInit {
     if ((window as any).setLang) {
       (window as any).setLang(this.lang);
     }
+    if ((window as any).setLangContacto) {
+      (window as any).setLangContacto(this.lang);
+    }
   }
 
 
