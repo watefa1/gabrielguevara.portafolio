@@ -10,32 +10,14 @@
   <a id="nav-proyectos" href="#app-proyectos" (click)="closeMenu()">Proyectos</a>
   <a id="nav-skills" href="#app-skills" (click)="closeMenu()">Skills</a>
   <a id="nav-contacto" href="#app-contacto" (click)="closeMenu()">Contacto</a>
-     <button class="settings-btn" (click)="openSettingsModal()" aria-label="Ajustes">
-       <span class="settings-icon">&#9881;</span>
+     <button class="lang-btn" (click)="toggleLang()" aria-label="Cambiar idioma">
+       <span class="lang-icon" *ngIf="lang === 'es'">ES</span>
+       <span class="lang-icon" *ngIf="lang === 'en'">EN</span>
      </button>
   </div>
 </nav>
 
-<div class="settings-modal" [class.open]="settingsModalOpen">
-  <div class="settings-modal-content">
-    <h3>Settings / Ajustes</h3>
-    <div class="settings-option">
-      <label for="lang-select-modal">Language / Idioma:</label>
-      <select id="lang-select-modal">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-      </select>
-    </div>
-    <div class="settings-option">
-      <label for="theme-select">Theme / Tema:</label>
-      <select id="theme-select">
-        <option value="oscuro">Dark / Oscuro</option>
-        <option value="claro">Light / Claro</option>
-      </select>
-    </div>
-    <button class="close-modal-btn" (click)="closeSettingsModal()">Cerrar</button>
-  </div>
-</div>
+
 
 <script>
   // Simple JS para mostrar/ocultar el menú en móviles

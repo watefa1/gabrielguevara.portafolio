@@ -1,4 +1,5 @@
 import { Component, signal, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SobreMi } from "./sobre-mi/sobre-mi";
 import { Proyectos } from "./proyectos/proyectos";
@@ -7,7 +8,7 @@ import { Skills } from "./skills/skills";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SobreMi, Proyectos, Skills, Contacto],
+  imports: [CommonModule, RouterOutlet, SobreMi, Proyectos, Skills, Contacto],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -15,37 +16,14 @@ export class App implements AfterViewInit {
   protected readonly title = signal('portafolio');
   menuOpen = false;
 
-  settingsModalOpen = false;
+  lang: 'es' | 'en' = 'es';
 
-  openSettingsModal() {
-    this.settingsModalOpen = true;
-    setTimeout(() => {
-      const langSelectModal = document.getElementById('lang-select-modal') as HTMLSelectElement;
-      if (langSelectModal) {
-        langSelectModal.removeEventListener('change', this._langChangeHandler);
-        this._langChangeHandler = () => {
-          this._setLangModal(langSelectModal.value as 'es' | 'en');
-        };
-        langSelectModal.addEventListener('change', this._langChangeHandler);
-        this._setLangModal(langSelectModal.value as 'es' | 'en');
-      }
-    }, 0);
-  }
-
-  private _langChangeHandler: any;
-  private _setLangModal(lang: 'es' | 'en') {
-    const translations = {
-      es: { close: 'Cerrar' },
-      en: { close: 'Close' }
-    };
-    const closeModalBtn = document.querySelector('.close-modal-btn') as HTMLButtonElement;
-    if (closeModalBtn) closeModalBtn.textContent = translations[lang].close;
-    // Llama a setLang global si existe
-    if ((window as any).setLang) (window as any).setLang(lang);
-  }
-
-  closeSettingsModal() {
-    this.settingsModalOpen = false;
+  toggleLang(): void {
+    this.lang = this.lang === 'es' ? 'en' : 'es';
+    this.setLang(this.lang);
+    if ((window as any).setLang) {
+      (window as any).setLang(this.lang);
+    }
   }
 
 
