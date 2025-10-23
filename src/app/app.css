@@ -135,7 +135,6 @@
 @media (max-width: 768px) {
   nav {
     position: relative;
-    width: 95vw;
     background: rgba(26, 25, 25, 0.95);
     box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
     border-radius: 0 0 12px 12px;
@@ -241,7 +240,7 @@
   }
   .navbar {
     min-width: 0;
-    width: 35%;
+    width: 37%;
     max-width: 700px;
     box-sizing: border-box;
     padding: 10px 32px;

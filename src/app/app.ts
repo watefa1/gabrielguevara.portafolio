@@ -40,7 +40,7 @@ export class App implements AfterViewInit {
       },
       header: {
         title: 'Gabriel Esteban Guevara',
-        subtitle: 'Hola, me llamo...',
+        subtitle: 'Hola, me llamo',
         subtitle2: 'a',
         desc: 'Bienvenido a mi portfolio, un espacio para conocer un poco sobre las herramientas y las tecnologías que manejo.'
       },
@@ -80,7 +80,7 @@ export class App implements AfterViewInit {
       },
       header: {
         title: 'Gabriel Esteban Guevara',
-        subtitle: "Hi, I'm...",
+        subtitle: "Hi, I'm",
         subtitle2: 'a',
         desc: 'Welcome to my portfolio, a space to discover the tools and technologies I use.'
       },

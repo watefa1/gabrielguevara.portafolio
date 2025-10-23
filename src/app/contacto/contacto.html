@@ -11,10 +11,19 @@
   <textarea id="message" name="message" rows="5" required placeholder="Mensaje..." data-ph="contacto-ph-message"></textarea>
 
   
-  <button type="submit" id="contacto-btn" class="btn-proyecto" style="margin-top:0.7em;">{{ lang === 'es' ? 'Enviar' : 'Send' }}</button>
-  <div style="display:flex;align-items:center;justify-content:center;gap:0.7em;margin-top:1.2em;flex-wrap:wrap;">
+  <button type="submit" id="contacto-btn" class="btn-proyecto" style="margin-top:0.7em;" [disabled]="sending">
+    <span *ngIf="!sending">{{ lang === 'es' ? 'Enviar' : 'Send' }}</span>
+    <span *ngIf="sending">{{ lang === 'es' ? 'Enviando...' : 'Sending...' }}</span>
+  </button>
+  <div *ngIf="sent" style="color:#19f3ff; text-align:center; margin-top:0.7em; font-weight:bold;">
+    {{ lang === 'es' ? '¡Mensaje enviado con éxito!' : 'Message sent successfully!' }}
+  </div>
+  <div *ngIf="error" style="color:#ff2f2f; text-align:center; margin-top:0.7em; font-weight:bold;">
+    {{ lang === 'es' ? 'Ocurrió un error. Intenta nuevamente.' : 'An error occurred. Please try again.' }}
+  </div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:0.7em;margin-top:1.2em;">
     <input type="checkbox" id="priv-check" name="priv-check" required style="accent-color:#19f3ff;width:1.2em;height:1.2em;">
-    <label for="priv-check" style="font-size:0.98em;cursor:pointer;display:flex;align-items:center;gap:0.3em;">
+    <label for="priv-check" style="font-size:0.98em;cursor:pointer;align-items:center;gap:0.3em;">
       <span *ngIf="lang === 'es'">He leído y acepto la</span>
       <span *ngIf="lang === 'en'">I have read and accept the</span>
       <a href="#" class="priv-link" (click)="$event.preventDefault(); showPrivModal=true" style="color:#19f3ff; text-decoration:underline; font-size:0.98em; margin-left:2px;">
