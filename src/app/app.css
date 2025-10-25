@@ -1,3 +1,12 @@
+/* Importar fuente personalizada */
+@font-face {
+  font-family: 'RobotoThin';
+  src: url('../assets/fonts/Roboto-Thin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Global font family override */
 * {
   font-family: 'Poppins', sans-serif;
@@ -192,6 +201,16 @@
     font-size: 1.1rem;
     margin-top: 10px;
   }
+  
+  /* Aplicar RobotoThin a elementos específicos en móvil */
+  #header-subtitle {
+    font-family: 'RobotoThin', sans-serif !important;
+  }
+  
+  #header-desc {
+    font-family: 'RobotoThin', sans-serif !important;
+  }
+  
   body {
   background-color: #000;
   margin: 0;
@@ -360,6 +379,24 @@ header h4 {
   margin-top: 20px;
   font-family: 'Poppins', sans-serif;
 }
+
+/* Aplicar fuente RobotoThin a elementos específicos */
+#header-subtitle {
+  font-family: 'RobotoThin', sans-serif !important;
+}
+
+#header-desc {
+  font-family: 'RobotoThin', sans-serif !important;
+}
+
+/* Asegurar que se aplique en todas las resoluciones */
+h4#header-subtitle {
+  font-family: 'RobotoThin', sans-serif !important;
+}
+
+h4#header-desc {
+  font-family: 'RobotoThin', sans-serif !important;
+}
 header p {
   color: rgb(200,200,200);
   max-width: 900px;
@@ -395,6 +432,16 @@ header h1 {
     font-size: 1.1rem;
     margin-top: 10px;
   }
+  
+  /* Aplicar RobotoThin a elementos específicos en móvil */
+  #header-subtitle {
+    font-family: 'RobotoThin', sans-serif !important;
+  }
+  
+  #header-desc {
+    font-family: 'RobotoThin', sans-serif !important;
+  }
+  
   .navbar {
     min-width: 0;
     width: 100%;
