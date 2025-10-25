@@ -49,11 +49,40 @@ p {
     box-sizing: border-box;
     padding-left: 0;
     padding-right: 0;
+    gap: 1.5rem;
+    margin: 1.5rem auto 2rem auto;
   }
   .proyecto-card {
-    max-width: 98vw;
-    width: 98vw;
+    max-width: 95vw;
+    width: 95vw;
     box-sizing: border-box;
+    padding: 1.5rem 1.2rem 1.5rem 1.2rem;
+    margin-bottom: 0;
+  }
+  
+  .proyecto-imagen-container {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .proyecto-descripcion {
+    margin-bottom: 1rem;
+  }
+  
+  .proyecto-badges {
+    margin-bottom: 1rem;
+  }
+  
+  .proyecto-rol, .proyecto-resp {
+    margin-bottom: 0.8rem;
+  }
+  
+  .proyecto-botones {
+    margin-top: 1rem;
+  }
+  
+  #app-proyectos {
+    margin-bottom: 2rem;
   }
 }
 
@@ -116,6 +145,12 @@ p {
 .badge-sql { background: #19f3ff; color: #111; }
 .badge-seo { background: #19f3ff; color: #111; }
 .badge-js { background: #19f3ff; color: #111; }
+.badge-react { background: #19f3ff; color: #111; }
+.badge-three { background: #19f3ff; color: #111; }
+.badge-fiber { background: #19f3ff; color: #111; }
+.badge-vite { background: #19f3ff; color: #111; }
+.badge-netlify { background: #19f3ff; color: #111; }
+.badge-ai { background: #19f3ff; color: #111; }
 .proyecto-rol, .proyecto-resp {
   color: #b0bfc9;
   font-size: 1em;
@@ -142,8 +177,18 @@ p {
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   border: 2px solid #19f3ff;
   transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
+
 .btn-proyecto:hover, .btn-codigo:hover {
   background: #19f3ff;
   color: #111;
+}
+
+.github-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }

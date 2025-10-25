@@ -57,7 +57,13 @@ export class App implements AfterViewInit {
         rol: 'Desarrollador Web Full Stack',
         respLabel: 'Responsabilidades:',
         resp: 'Diseño, desarrollo, arquitectura, compra de dominio y hosting, configuración de base de datos, optimización SEO, despliegue y mantenimiento.',
-        btn: 'Ver Proyecto'
+        btn: 'Ver Proyecto',
+        cardTitle2: 'Sistema Solar Interactivo',
+        cardDesc2: 'Simulación interactiva en 3D del sistema solar con animaciones realistas, texturas de alta calidad generadas con IA y controles intuitivos. Los usuarios pueden explorar planetas, modificar la velocidad de rotación y órbita, y obtener información detallada de cada cuerpo celeste.',
+        rol2: 'Frontend Developer & 3D Artist',
+        resp2: 'Desarrollo 3D, generación de texturas con IA, optimización de rendimiento, diseño de interfaz, animaciones y despliegue.',
+        btn2: 'Ver Proyecto',
+        btnGithub2: 'Ver Código'
       },
       contacto: {
         title: 'Contacto',
@@ -97,7 +103,13 @@ export class App implements AfterViewInit {
         rol: 'Full Stack Web Developer',
         respLabel: 'Responsibilities:',
         resp: 'Design, development, architecture, domain and hosting purchase, database setup, SEO optimization, deployment and maintenance.',
-        btn: 'View Project'
+        btn: 'View Project',
+        cardTitle2: 'Interactive Solar System',
+        cardDesc2: 'Interactive 3D simulation of the solar system with realistic animations, high-quality AI-generated textures, and intuitive controls. Users can explore planets, modify rotation and orbit speeds, and get detailed information about each celestial body.',
+        rol2: 'Frontend Developer & 3D Artist',
+        resp2: '3D development, AI texture generation, performance optimization, interface design, animations and deployment.',
+        btn2: 'View Project',
+        btnGithub2: 'View Code'
       },
       contacto: {
         title: 'Contact',
@@ -135,6 +147,14 @@ export class App implements AfterViewInit {
       'proyecto-card-resp-label': t.proyectos.respLabel,
       'proyecto-card-resp': t.proyectos.resp,
       'proyecto-card-btn': t.proyectos.btn,
+      'proyecto-card-title-2': t.proyectos.cardTitle2,
+      'proyecto-card-desc-2': t.proyectos.cardDesc2,
+      'proyecto-card-rol-label-2': t.proyectos.rolLabel,
+      'proyecto-card-rol-2': t.proyectos.rol2,
+      'proyecto-card-resp-label-2': t.proyectos.respLabel,
+      'proyecto-card-resp-2': t.proyectos.resp2,
+      'proyecto-card-btn-2': t.proyectos.btn2,
+      'proyecto-github-btn-2': t.proyectos.btnGithub2,
       'contacto-title': t.contacto.title,
       'contacto-label-email': t.contacto.labelEmail,
       'contacto-label-subject': t.contacto.labelSubject,

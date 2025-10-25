@@ -1,6 +1,6 @@
 /* Global font family override */
 * {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Poppins', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -173,6 +173,9 @@
     background: rgba(1,196,255,0.1);
     color: #19f3ff;
   }
+  #nav-sobre-mi {
+    display: none;
+  }
   .lang-switcher {
     padding: 12px 24px;
     text-align: center;
@@ -245,10 +248,10 @@
   }
   .navbar {
     min-width: 0;
-    width: 37%;
-    max-width: 700px;
+    width: 45%;
+    max-width: 800px;
     box-sizing: border-box;
-    padding: 10px 32px;
+    padding: 10px 20px;
     position: sticky;
     top: 24px;
     left: 50%;
@@ -264,15 +267,23 @@
     align-items: center;
     transition: background 0.3s, box-shadow 0.3s;
   }
+  .nav-links {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+    white-space: nowrap;
+  }
   .nav-links a {
-    padding: 12px 27px;
+    padding: 10px 18px;
     color: rgb(220, 220, 220);
     text-decoration: none;
     border-radius: 999px;
     transition: 0.3s;
-    font-size: 1.05em;
+    font-size: 0.95em;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
   }
   .nav-links a:hover {
     background: rgba(1,196,255,0.1);
