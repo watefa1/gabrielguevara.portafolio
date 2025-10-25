@@ -192,3 +192,23 @@ p {
   height: 16px;
   fill: currentColor;
 }
+
+/* Estilos para imágenes clickeables */
+.proyecto-imagen-real {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto-imagen-real:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 32px 6px currentColor, 0 6px 32px rgba(0,0,0,0.25) !important;
+}
+
+/* Efecto específico para cada proyecto */
+.proyecto-card:nth-child(1) .proyecto-imagen-real:hover {
+  box-shadow: 0 0 32px 6px #d19ede, 0 6px 32px rgba(0,0,0,0.25) !important;
+}
+
+.proyecto-card:nth-child(2) .proyecto-imagen-real:hover {
+  box-shadow: 0 0 32px 6px #19f3ff, 0 6px 32px rgba(0,0,0,0.25) !important;
+}
