@@ -1,3 +1,8 @@
+/* Global font family override */
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
 @media (max-width: 768px) {
   .hero-btns {
     align-items: center !important;
@@ -187,7 +192,7 @@
   body {
   background-color: #000;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
     max-width: 90vw;
   overflow-x: hidden;
 }
@@ -314,7 +319,7 @@ nav[aria-label="Navegación de paginación"] {
 body {
   background-color: #000;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
     max-width: 100vw;
   overflow-x: hidden;
 }
