@@ -246,15 +246,12 @@ export class App implements AfterViewInit {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
     const menu = document.querySelector('.nav-links');
-    const burger = document.querySelector('.hamburger');
     menu?.classList.toggle('open', this.menuOpen);
-    burger?.classList.toggle('active', this.menuOpen);
   }
 
   closeMenu() {
     this.menuOpen = false;
     document.querySelector('.nav-links')?.classList.remove('open');
-    document.querySelector('.hamburger')?.classList.remove('active');
   }
 
   changeLang(event: Event) {

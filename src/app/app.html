@@ -1,9 +1,4 @@
 <nav class="navbar">
-  <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Abrir menú">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
 
   <div class="nav-links" [class.open]="menuOpen">
   <a id="nav-sobre-mi" href="#app-sobre-mi" (click)="closeMenu()">Sobre mí</a>
@@ -19,20 +14,6 @@
      </button>
   </div>
 </nav>
-
-
-
-<script>
-  // Simple JS para mostrar/ocultar el menú en móviles
-  document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburger-btn');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', function() {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('active');
-    });
-  });
-</script>
 
 <header>
   <div>
