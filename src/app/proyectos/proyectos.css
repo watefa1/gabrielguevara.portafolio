@@ -151,6 +151,9 @@ p {
 .badge-vite { background: #19f3ff; color: #111; }
 .badge-netlify { background: #19f3ff; color: #111; }
 .badge-ai { background: #19f3ff; color: #111; }
+.badge-angular { background: #19f3ff; color: #111; }
+.badge-supabase { background: #19f3ff; color: #111; }
+.badge-ts { background: #19f3ff; color: #111; }
 .proyecto-rol, .proyecto-resp {
   color: #b0bfc9;
   font-size: 1em;
@@ -193,10 +196,44 @@ p {
   fill: currentColor;
 }
 
+/* Contenedor scrolleable para imágenes */
+.proyecto-imagen-scroll-container {
+  width: 100%;
+  max-width: 480px;
+  height: 145px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 16px;
+  margin-bottom: 1.2rem;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.proyecto-imagen-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.proyecto-imagen-scroll-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0 16px 16px 0;
+}
+
+.proyecto-imagen-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(25, 243, 255, 0.5);
+  border-radius: 4px;
+}
+
+.proyecto-imagen-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(25, 243, 255, 0.8);
+}
+
 /* Estilos para imágenes clickeables */
 .proyecto-imagen-real {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .proyecto-imagen-real:hover {
@@ -211,4 +248,33 @@ p {
 
 .proyecto-card:nth-child(2) .proyecto-imagen-real:hover {
   box-shadow: 0 0 32px 6px #19f3ff, 0 6px 32px rgba(0,0,0,0.25) !important;
+}
+
+.proyecto-card:nth-child(3) .proyecto-imagen-real:hover {
+  box-shadow: 0 0 32px 6px #ffa500, 0 6px 32px rgba(0,0,0,0.25) !important;
+}
+
+/* Estilos para scrollbar en diferentes proyectos */
+.proyecto-card:nth-child(1) .proyecto-imagen-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(209, 158, 222, 0.5);
+}
+
+.proyecto-card:nth-child(1) .proyecto-imagen-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(209, 158, 222, 0.8);
+}
+
+.proyecto-card:nth-child(2) .proyecto-imagen-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(25, 243, 255, 0.5);
+}
+
+.proyecto-card:nth-child(2) .proyecto-imagen-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(25, 243, 255, 0.8);
+}
+
+.proyecto-card:nth-child(3) .proyecto-imagen-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 165, 0, 0.5);
+}
+
+.proyecto-card:nth-child(3) .proyecto-imagen-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 165, 0, 0.8);
 }
