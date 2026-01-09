@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-contacto',
@@ -14,7 +15,11 @@ export class Contacto implements OnInit {
   sent = false;
   error = false;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    
     this.lang = (window as any).lang || 'es';
     (window as any).setLangContacto = (lang: 'es' | 'en') => {
       this.lang = lang;

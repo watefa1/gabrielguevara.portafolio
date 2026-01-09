@@ -1,6 +1,6 @@
-import { Component, signal, AfterViewInit } from '@angular/core';
+import { Component, signal, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 import { SobreMi } from "./sobre-mi/sobre-mi";
 import { Proyectos } from "./proyectos/proyectos";
 import { Contacto } from "./contacto/contacto";
@@ -8,7 +8,7 @@ import { Skills } from "./skills/skills";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, SobreMi, Proyectos, Skills, Contacto],
+  imports: [CommonModule, SobreMi, Proyectos, Skills, Contacto],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -18,14 +18,18 @@ export class App implements AfterViewInit {
 
   lang: 'es' | 'en' = 'es';
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   toggleLang(): void {
     this.lang = this.lang === 'es' ? 'en' : 'es';
     this.setLang(this.lang);
-    if ((window as any).setLang) {
-      (window as any).setLang(this.lang);
-    }
-    if ((window as any).setLangContacto) {
-      (window as any).setLangContacto(this.lang);
+    if (isPlatformBrowser(this.platformId)) {
+      if ((window as any).setLang) {
+        (window as any).setLang(this.lang);
+      }
+      if ((window as any).setLangContacto) {
+        (window as any).setLangContacto(this.lang);
+      }
     }
   }
 
@@ -126,6 +130,8 @@ export class App implements AfterViewInit {
   };
 
   setLang(lang: 'es' | 'en') {
+    if (!isPlatformBrowser(this.platformId)) return;
+    
     const t = this.translations[lang];
   const ids = {
       'nav-sobre-mi': t.nav.sobreMi,
@@ -198,6 +204,8 @@ export class App implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    
   const nav = document.querySelector('nav') as HTMLElement;
   const navHeight = nav.offsetHeight + 20;
   const centerOffset = window.innerHeight / 4; // Ajusta este valor para centrar más o menos
