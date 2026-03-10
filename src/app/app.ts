@@ -48,7 +48,7 @@ export class App implements AfterViewInit {
         subtitle2: 'a',
         desc: 'Bienvenido a mi portfolio, un espacio para conocer un poco sobre las herramientas y las tecnologías que manejo.'
       },
-      footer: '© 2025 Gabriel Esteban Guevara',
+      footer: '© 2026 Gabriel Esteban Guevara',
       sobreMi: {
         title: 'Sobre mí',
         desc: 'Me entusiasma asumir nuevos desafíos que impulsen mi crecimiento profesional. Disfruto trabajar en equipo, aportar ideas creativas y desarrollar soluciones eficientes que combinen funcionalidad y buen diseño. Mi objetivo es fortalecer mis habilidades técnicas y mantenerme actualizado con las tecnologías más relevantes para cada proyecto.'
@@ -94,7 +94,7 @@ export class App implements AfterViewInit {
         subtitle2: 'a',
         desc: 'Welcome to my portfolio, a space to discover the tools and technologies I use.'
       },
-      footer: '© 2025 Gabriel Esteban Guevara',
+      footer: '© 2026 Gabriel Esteban Guevara',
       sobreMi: {
         title: 'About Me',
         desc: 'I am passionate about taking on new challenges that drive my professional growth. I enjoy teamwork, contributing creative ideas, and developing efficient solutions that combine functionality and good design. My goal is to strengthen my technical skills and stay up-to-date with the most relevant technologies for each project.'
@@ -208,7 +208,6 @@ export class App implements AfterViewInit {
     
   const nav = document.querySelector('nav') as HTMLElement;
   const navHeight = nav.offsetHeight + 20;
-  const centerOffset = window.innerHeight / 4; // Ajusta este valor para centrar más o menos
 
     const langSelectModal = document.getElementById('lang-select-modal') as HTMLSelectElement;
     if (langSelectModal) {
@@ -235,16 +234,7 @@ export class App implements AfterViewInit {
         if (!targetEl) return;
 
         const elementTop = targetEl.getBoundingClientRect().top + window.scrollY;
-        let scrollTo;
-        if (targetId === '#app-sobre-mi') {
-          scrollTo = elementTop - navHeight - centerOffset;
-        } else if (targetId === '#app-proyectos') {
-          scrollTo = elementTop - navHeight; // Offset menor para que quede más arriba
-        } else if (targetId === '#app-skills') {
-          scrollTo = elementTop - navHeight;
-        } else if (targetId === '#app-contacto') {
-          scrollTo = elementTop - navHeight;
-        }
+        const scrollTo = Math.max(0, elementTop - navHeight + 8);
         window.scrollTo({ top: scrollTo, behavior: 'smooth' });
         this.closeMenu();
       });
