@@ -10,6 +10,26 @@
   margin-top: 60px;
   
 }
+
+.skill-badge {
+  cursor: default;
+  border: 1px solid rgba(25, 243, 255, 0.35);
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.skill-badge:hover {
+  background: #19f3ff;
+  color: #111;
+  border-color: #19f3ff;
+  box-shadow: 0 6px 14px rgba(25, 243, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+.skill-badge:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(25, 243, 255, 0.2);
+}
+
 @media (max-width: 768px) {
   .skills-cv-container {
     max-width: 90vw;
