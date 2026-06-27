@@ -1,7 +1,12 @@
-﻿import { Component } from "@angular/core";
+﻿﻿import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: "app-chatbot",
+  standalone: true,
+  imports: [
+    FormsModule
+  ],
   templateUrl: "./chatbot.html",
   styleUrls: ["./chatbot.css"]
 })
@@ -52,4 +57,3 @@ export class ChatbotComponent {
     }
   }
 }
-
