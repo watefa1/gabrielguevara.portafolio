@@ -81,7 +81,7 @@ ${JSON.stringify(profile, null, 2)}
         "Authorization": `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "meta/llama3-8b-instruct",
+        model: "meta/llama-3-8b-instruct",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: message },
