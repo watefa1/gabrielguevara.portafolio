@@ -1,6 +1,6 @@
 import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
-import { promises as fs } from "fs";
-import path from "path";
+
+import profile from "./data/profile.json";
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   if (event.httpMethod !== "POST") {
@@ -40,10 +40,6 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
         },
       };
     }
-
-    const profilePath = path.join(__dirname, "data/profile.json");
-    const profileData = await fs.readFile(profilePath, "utf-8");
-    const profile = JSON.parse(profileData);
 
     const systemPrompt = `
 You are an AI assistant for Gabriel Guevara''s portfolio.
@@ -124,5 +120,3 @@ ${JSON.stringify(profile, null, 2)}
 };
 
 export { handler };
-
-
