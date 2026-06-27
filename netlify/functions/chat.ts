@@ -1,4 +1,4 @@
-﻿import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
+import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
 import { promises as fs } from "fs";
 import path from "path";
 

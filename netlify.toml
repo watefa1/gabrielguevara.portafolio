@@ -1,4 +1,4 @@
-﻿[build]
+[build]
   publish = "dist/portafolio/browser"
   command = "npm run build"
 [functions]
