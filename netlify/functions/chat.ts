@@ -107,10 +107,16 @@ ${JSON.stringify(profile, null, 2)}
       },
     };
   } catch (error) {
-    console.error(error);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    console.error("Error in Netlify function:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "An error occurred while processing your request." }),
+      body: JSON.stringify({
+        error: "An error occurred while processing your request.",
+        // Let's add more details for debugging
+        details: errorMessage,
+        stack: error instanceof Error ? error.stack : undefined,
+      }),
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
