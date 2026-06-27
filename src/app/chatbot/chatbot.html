@@ -1,16 +1,23 @@
 <div class="chat-widget">
   <button class="chat-button" (click)="toggleChat()">
     @if (!isOpen) {
-      <span>AI</span>
+      <img src="/assets/images/lkuna.png" alt="Chat logo" class="chat-logo">
     } @else {
       <span>X</span>
     }
   </button>
 
+  @if (showWelcomeBubble && !isOpen) {
+    <div class="welcome-bubble">
+      {{ welcomeMessage }}
+    </div>
+  }
+
   @if (isOpen) {
     <div class="chat-window">
     <div class="chat-header">
-      <h3>AI Portfolio Assistant</h3>
+      <img src="/assets/images/lkuna.png" alt="Luna logo" class="logo">
+      <h3>Luna</h3>
     </div>
     <div class="chat-body">
         @for (message of messages; track message) {
@@ -23,7 +30,7 @@
         }
     </div>
     <div class="chat-footer">
-      <input type="text" placeholder="Ask me a question..." [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" [disabled]="isLoading">
+      <input type="text" [placeholder]="placeholder" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" [disabled]="isLoading">
       <button (click)="sendMessage()" [disabled]="isLoading">Send</button>
     </div>
   </div>

@@ -1,5 +1,6 @@
-﻿﻿import { Component } from "@angular/core";
+import { Component, Inject, PLATFORM_ID, Input, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-chatbot",
@@ -10,14 +11,30 @@ import { FormsModule } from "@angular/forms";
   templateUrl: "./chatbot.html",
   styleUrls: ["./chatbot.css"]
 })
-export class ChatbotComponent {
+export class ChatbotComponent implements OnInit {
   isOpen = false;
   messages: { text: string, isUser: boolean }[] = [];
   newMessage = "";
   isLoading = false;
+  @Input() welcomeMessage = "";
+  @Input() initialMessage = "";
+  @Input() placeholder = "";
+  showWelcomeBubble = true;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+  }
+
+  ngOnInit(): void {
+    if (this.initialMessage) {
+      this.messages.push({ text: this.initialMessage, isUser: false });
+    }
+  }
 
   toggleChat(): void {
     this.isOpen = !this.isOpen;
+    if (this.isOpen) {
+      this.showWelcomeBubble = false;
+    }
   }
 
   async sendMessage(): Promise<void> {

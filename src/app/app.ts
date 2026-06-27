@@ -20,7 +20,12 @@ export class App implements AfterViewInit {
 
     lang: "es" | "en" = "es";
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+        if (isPlatformBrowser(this.platformId)) {
+            const browserLang = navigator.language.split("-")[0];
+            this.lang = browserLang === "es" ? "es" : "en";
+        }
+    }
 
     toggleLang(): void {
         this.lang = this.lang === "es" ? "en" : "es";
@@ -140,6 +145,11 @@ export class App implements AfterViewInit {
                 phEmail: "tu@email.com",
                 phSubject: "Asunto del mensaje",
                 phMessage: "Mensaje..."
+            },
+            chatbot: {
+                welcome: "Puedes hablar conmigo, miau",
+                initial: "Hola, soy Luna. Compañero gatuno de Gabriel. Puedes preguntarme lo que necesites saber de él",
+                placeholder: "Hazme una pregunta..."
             }
         },
         en: {
@@ -245,12 +255,18 @@ export class App implements AfterViewInit {
                 phEmail: "your@email.com",
                 phSubject: "Message subject",
                 phMessage: "Message..."
+            },
+            chatbot: {
+                welcome: "You can talk to me, meow",
+                initial: "Hi, I'm Luna, Gabriel's feline companion. You can ask me anything you need to know about him",
+                placeholder: "Ask me a question..."
             }
         }
     };
 
     setLang(lang: "es" | "en") {
         if (!isPlatformBrowser(this.platformId)) return;
+        document.documentElement.lang = lang;
         
         const t = this.translations[lang];
     const ids = {
@@ -392,17 +408,10 @@ export class App implements AfterViewInit {
 
     ngAfterViewInit() {
         if (!isPlatformBrowser(this.platformId)) return;
-        
+        this.setLang(this.lang);
+
     const nav = document.querySelector("nav") as HTMLElement;
     const navHeight = nav.offsetHeight + 20;
-
-        const langSelectModal = document.getElementById("lang-select-modal") as HTMLSelectElement;
-        if (langSelectModal) {
-            langSelectModal.addEventListener("change", () => this.setLang(langSelectModal.value as "es" | "en"));
-            this.setLang(langSelectModal.value as "es" | "en");
-        } else {
-            this.setLang("es");
-        }
 
         document.querySelectorAll(".nav-links a").forEach(link => {
             link.addEventListener("click", (e) => {
