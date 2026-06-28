@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, Input, OnInit } from "@angular/core";
+﻿import { Component, Inject, PLATFORM_ID, Input, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { isPlatformBrowser } from "@angular/common";
 
@@ -42,6 +42,7 @@ export class ChatbotComponent implements OnInit {
   async sendSuggestion(suggestion: string): Promise<void> {
     this.newMessage = suggestion;
     await this.sendMessage();
+    this.showSuggestions = false; // Ocultar sugerencias al hacer clic
   }
 
   async sendMessage(): Promise<void> {
@@ -49,6 +50,7 @@ export class ChatbotComponent implements OnInit {
       return;
     }
 
+    this.showSuggestions = false; // Ocultar sugerencias al enviar un mensaje
     this.messages.push({ text: this.newMessage, isUser: true });
     const userMessage = this.newMessage;
     this.newMessage = "";
