@@ -47,16 +47,16 @@
   content: '';
   position: absolute;
   bottom: 0;
-  left: -5px;
+  right: -5px;
   width: 0;
   height: 0;
   border: 10px solid transparent;
   border-top-color: #7f5ad5;
   border-bottom: 0;
-  border-left: 0;
-  margin-left: -10px;
+  border-right: 0;
+  margin-right: -10px;
   margin-bottom: -10px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 
 

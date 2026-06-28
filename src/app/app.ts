@@ -149,7 +149,11 @@ export class App implements AfterViewInit {
             chatbot: {
                 welcome: "Puedes hablar conmigo, miau",
                 initial: "Hola, soy Luna. Compañero gatuno de Gabriel. Puedes preguntarme lo que necesites saber de él",
-                placeholder: "Hazme una pregunta..."
+                placeholder: "O puedes preguntar lo que quieras",
+                suggestions: [
+                    "¿Cuales son los hobbies de Gabriel?",
+                    "¿Qué tecnologias conoce Gabriel?"
+                ]
             }
         },
         en: {
@@ -219,7 +223,7 @@ export class App implements AfterViewInit {
                 btn2: "View Project",
                 btnGithub2: "View Code",
                 cardTitle3: "Self-Managed Landing Page",
-                cardDesc3: "Modern website for a burger restaurant with order management and an interactive menu. Includes real-time database implementation, advanced SEO optimization, and responsive design to deliver a smooth user experience across all devices.",
+                cardDesc3: "Modern website for a burger restaurant with order management and an interactive menu. Includes real-time database implementation, advanced SEO optimization, and responsive design to deliver a a smooth user experience across all devices.",
                 rol3: "Full Stack Web Developer",
                 resp3: "Frontend and backend development, Supabase integration, SEO optimization, responsive design, and Netlify deployment.",
                 btn3: "View Project",
@@ -259,7 +263,11 @@ export class App implements AfterViewInit {
             chatbot: {
                 welcome: "You can talk to me, meow",
                 initial: "Hi, I'm Luna, Gabriel's feline companion. You can ask me anything you need to know about him",
-                placeholder: "Ask me a question..."
+                placeholder: "Or you can ask whatever you want",
+                suggestions: [
+                    "What are Gabriel's hobbies?",
+                    "What technologies does Gabriel know?"
+                ]
             }
         }
     };

@@ -19,7 +19,9 @@ export class ChatbotComponent implements OnInit {
   @Input() welcomeMessage = "";
   @Input() initialMessage = "";
   @Input() placeholder = "";
+  @Input() suggestions: string[] = [];
   showWelcomeBubble = true;
+  showSuggestions = true;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
   }
@@ -35,6 +37,11 @@ export class ChatbotComponent implements OnInit {
     if (this.isOpen) {
       this.showWelcomeBubble = false;
     }
+  }
+
+  async sendSuggestion(suggestion: string): Promise<void> {
+    this.newMessage = suggestion;
+    await this.sendMessage();
   }
 
   async sendMessage(): Promise<void> {

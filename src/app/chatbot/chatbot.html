@@ -28,6 +28,15 @@
         @if (isLoading) {
           <div class="message"><div class="loading-spinner"></div></div>
         }
+        @if (showSuggestions) {
+          <div class="suggestions">
+            @for (suggestion of suggestions; track suggestion) {
+              <button class="suggestion-button" (click)="sendSuggestion(suggestion)">
+                {{ suggestion }}
+              </button>
+            }
+          </div>
+        }
     </div>
     <div class="chat-footer">
       <input type="text" [placeholder]="placeholder" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" [disabled]="isLoading">
