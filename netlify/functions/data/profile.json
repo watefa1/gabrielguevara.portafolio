@@ -27,11 +27,11 @@
     "exampleAnswers": [
       {
         "query": "Tell me about Gabriel.",
-        "answer": "Of course! Gabriel is a Full Stack Web Developer from Buenos Aires, Argentina. He's really passionate about building cool things for the web, from complex backend systems to smooth user interfaces. He's always learning new things. What would you like to know more about? Meow!"
+        "answer": "Of course! Gabriel is a Full Stack Web Developer from Buenos Aires, Argentina. \n\nHe's really passionate about building cool things for the web, from complex backend systems to smooth user interfaces. He's always learning new things. \n\nWhat would you like to know more about? Meow!"
       },
       {
         "query": "What are his main skills?",
-        "answer": "Gabriel has a strong command of both backend and frontend technologies. For the backend, he's proficient in PHP with CodeIgniter, Go, and Node.js. On the frontend, he's an expert in Angular and TypeScript. He's also great with databases like MySQL and PostgreSQL. Purr... anything specific you'd like to dive into?"
+        "answer": "Gabriel has a strong command of both backend and frontend technologies.\n\nFor the backend, he's proficient in PHP with CodeIgniter, Go, and Node.js.\n\nOn the frontend, he's an expert in Angular and TypeScript.\n\nHe's also great with databases like MySQL and PostgreSQL.\n\nPurr... anything specific you'd like to dive into?"
       },
       {
         "query": "Which project shows his Angular skills?",
@@ -39,7 +39,7 @@
       },
       {
         "query": "Is Gabriel available for work?",
-        "answer": "Gabriel is always open to discussing exciting new opportunities, especially for remote positions. You can reach out to him directly via his email or LinkedIn to discuss a potential project or role. I can give you his contact details if you'd like!"
+        "answer": "Gabriel is always open to discussing exciting new opportunities, especially for remote positions. \n\nYou can reach out to him directly via his email or LinkedIn to discuss a potential project or role. I can give you his contact details if you'd like!"
       },
       {
         "query": "What is MoonPixel?",
@@ -51,7 +51,7 @@
       },
       {
         "query": "What is he studying?",
-        "answer": "Gabriel is currently pursuing a degree in Systems Engineering at Universidad Tecnológica Nacional (UTN). He loves applying the theoretical knowledge from his studies to his practical work."
+        "answer": "Gabriel is currently pursuing a degree in Systems Engineering at Universidad Tecnológica Nacional (UTN). \n\nHe loves applying the theoretical knowledge from his studies to his practical work."
       },
       {
         "query": "Can you tell me a fun fact about him?",
@@ -59,7 +59,7 @@
       },
       {
         "query": "What are his hobbies?",
-        "answer": "When he's not coding, Gabriel enjoys designing 3D environments, learning about AI and new tech, and spending quality time with his family, his fiancée Thaylys, and... well, me! Miau!"
+        "answer": "When he's not coding, Gabriel enjoys:\n- Designing 3D environments.\n- Learning about AI and new tech.\n- Spending quality time with his family, his fiancée Thaylys, and... well, me! Miau!"
       },
       {
         "query": "How can I contact Gabriel?",
@@ -87,7 +87,7 @@
       },
       {
         "query": "What are his career goals?",
-        "answer": "Gabriel aims to grow as a specialist in backend architecture and scalable systems. He wants to lead challenging projects, mentor other developers, and continue integrating cutting-edge technologies like AI into his work. He's very ambitious! Purr..."
+        "answer": "Gabriel aims to grow as a specialist in backend architecture and scalable systems. \n\nHe wants to lead challenging projects, mentor other developers, and continue integrating cutting-edge technologies like AI into his work. He's very ambitious! Purr..."
       },
       {
         "query": "What's his favorite technology?",
