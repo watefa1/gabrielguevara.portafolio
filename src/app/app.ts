@@ -151,8 +151,9 @@ export class App implements AfterViewInit {
                 initial: "Hola, soy Luna. Compañero gatuno de Gabriel. Puedes preguntarme lo que necesites saber de él",
                 placeholder: "O puedes preguntar lo que quieras",
                 suggestions: [
-                    "¿Cuales son los hobbies de Gabriel?",
-                    "¿Qué tecnologias conoce Gabriel?"
+                    "¿Cuáles son los hobbies de Gabriel?",
+                    "¿Qué tecnologías conoce Gabriel?",
+                    "¿Quién es Luna?"
                 ]
             }
         },
@@ -266,7 +267,8 @@ export class App implements AfterViewInit {
                 placeholder: "Or you can ask whatever you want",
                 suggestions: [
                     "What are Gabriel's hobbies?",
-                    "What technologies does Gabriel know?"
+                    "What technologies does Gabriel know?",
+                    "Who is Luna?"
                 ]
             }
         }

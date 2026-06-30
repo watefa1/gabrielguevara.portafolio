@@ -43,22 +43,6 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.welcome-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: -5px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-top-color: #7f5ad5;
-  border-bottom: 0;
-  border-right: 0;
-  margin-right: -10px;
-  margin-bottom: -10px;
-  transform: rotate(45deg);
-}
-
 
 .chat-window {
   width: 400px;
@@ -204,4 +188,25 @@
 
 .suggestion-button:hover {
   background-color: #5a6578;
+}
+
+/* --- Ajustes para Chatbot en Móviles --- */
+@media (max-width: 768px) {
+  .chat-widget {
+    /* Cambiamos el orden para que la burbuja esté sobre el botón */
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 10px;
+    /* Aseguramos que ocupe el ancho necesario sin desbordar */
+    max-width: calc(100vw - 40px);
+  }
+
+  .welcome-bubble {
+    margin-bottom: 0;
+  }
+
+  .chat-window {
+    width: calc(100vw - 40px);
+    right: -20px; /* Alineamos la ventana con el borde de la pantalla */
+  }
 }
