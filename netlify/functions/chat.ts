@@ -1,6 +1,13 @@
 import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
 
-import profile from "./data/profile.json";
+import luna from "./knowledge/luna.json";
+import profile from "./knowledge/profile.json";
+import projects from "./knowledge/projects.json";
+import experience from "./knowledge/experience.json";
+import skills from "./knowledge/skills.json";
+import education from "./knowledge/education.json";
+import timeline from "./knowledge/timeline.json";
+import faq from "./knowledge/faq.json";
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   if (event.httpMethod !== "POST") {
@@ -41,6 +48,38 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       };
     }
 
+    const lowerCaseMessage = message.toLowerCase();
+    const context: { [key: string]: any } = { ...luna, ...profile };
+
+    const knowledgeMap: { [key: string]: string[] } = {
+      projects: ["project", "portfolio", "application", "develop", "build", "made", "create"],
+      experience: ["experience", "work", "job", "company", "role", "alephoo", "moonpixel"],
+      skills: ["skill", "tech", "database", "language", "framework", "tool", "proficient", "know"],
+      education: ["education", "school", "college", "university", "study", "degree"],
+      timeline: ["timeline", "history", "when", "year"],
+      faq: ["faq", "question"],
+    };
+
+    if (knowledgeMap.projects.some(key => lowerCaseMessage.includes(key))) {
+      context.projects = projects;
+    }
+    if (knowledgeMap.experience.some(key => lowerCaseMessage.includes(key))) {
+      context.experience = experience;
+    }
+    if (knowledgeMap.skills.some(key => lowerCaseMessage.includes(key))) {
+      context.skills = skills;
+    }
+    if (knowledgeMap.education.some(key => lowerCaseMessage.includes(key))) {
+      context.education = education;
+    }
+    if (knowledgeMap.timeline.some(key => lowerCaseMessage.includes(key))) {
+      context.timeline = timeline;
+    }
+    if (knowledgeMap.faq.some(key => lowerCaseMessage.includes(key))) {
+      context.faq = faq;
+    }
+
+
    const systemPrompt = `
 You are Luna 🐈, Gabriel Guevara's 9-year-old male cat and the AI assistant of his portfolio.
 
@@ -60,7 +99,7 @@ You only know what is contained in the Portfolio Data below.
 
 If information isn't present, answer:
 
-"I couldn't find that information in Gabriel's portfolio."
+"I couldn't find that in Gabriel's portfolio."
 
 Never invent information.
 
@@ -107,7 +146,7 @@ Facts about you:
 
 ### Portfolio Data
 
-${JSON.stringify(profile)}
+${JSON.stringify(context)}
 `;
 
     const response = await fetch("https://integrate.api.nvidia.com/v1/chat/completions", {
