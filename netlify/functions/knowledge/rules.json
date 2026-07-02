@@ -1,0 +1,51 @@
+﻿[
+  {
+    "id": "projects",
+    "keywords": ["project", "proyect", "portfolio", "application", "develop", "build", "desarrollo", "hiciste", "creaste"],
+    "data": ["projects"]
+  },
+  {
+    "id": "experience",
+    "keywords": ["experience", "work", "job", "company", "role", "alephoo", "moonpixel", "experiencia", "trabajo", "rol", "puesto"],
+    "data": ["experience"]
+  },
+  {
+    "id": "skills",
+    "keywords": ["skill", "tech", "database", "language", "framework", "tool", "proficient", "know", "habilidad", "habilidades", "tecnologia", "sabe"],
+    "data": ["skills"]
+  },
+  {
+    "id": "education",
+    "keywords": ["education", "school", "college", "university", "study", "degree", "educacion", "escuela", "colegio", "universidad", "estudio", "carrera", "utn"],
+    "data": ["education"]
+  },
+  {
+    "id": "timeline",
+    "keywords": ["timeline", "history", "when", "year", "historia", "cuando", "ano", "started", "start", "begin", "career", "inicio", "comenzo", "empezo", "first job", "today", "currently", "present"],
+    "data": ["timeline"]
+  },
+  {
+    "id": "tech",
+    "keywords": [
+      "php", "laravel", "codeigniter", "ci3", "golang", "go", "angular", "typescript", "javascript", "node", "nodejs", 
+      "express", "mysql", "postgres", "postgresql", "rest", "api", "backend", "frontend", "netlify", "threejs", 
+      "three.js", "blender", "docker", "aws", "cloudwatch", "ec2"
+    ],
+    "data": ["skills", "experience", "projects"]
+  },
+  {
+    "id": "contact",
+    "keywords": ["contact", "email", "mail", "github", "linkedin", "website", "portfolio", "contacto", "correo", "hire", "work", "remote", "freelance"],
+    "data": ["profile"]
+  },
+  {
+    "id": "faq",
+    "keywords": ["faq", "frequently", "pregunta", "frecuente", "available", "salary", "english", "visa", "remote"],
+    "data": ["faq", "profile"]
+  },
+  {
+    "id": "hobbies",
+    "keywords": ["hobbie", "hobby", "free time", "likes", "cat", "luna", "family", "thaylys", "3d", "blender", "paisajes", "environment"],
+    "data": ["profile", "luna"]
+  }
+]
