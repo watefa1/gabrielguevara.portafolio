@@ -95,6 +95,7 @@
   border-radius: 15px;
   max-width: 85%;
   line-height: 1.4;
+  white-space: pre-wrap;
 }
 
 .message p {
