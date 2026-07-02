@@ -17,6 +17,9 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   messages: { text: string, isUser: boolean }[] = [];
   newMessage = "";
   isLoading = false;
+  loadingMessage = "";
+  private loadingTimeout: any;
+  private funnyMessageInterval: any;
   @Input() welcomeMessage = "";
   @Input() initialMessage = "";
   @Input() placeholder = "";
@@ -64,44 +67,90 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   }
 
   async sendMessage(): Promise<void> {
-    if (this.newMessage.trim() === "") {
-      return;
-    }
+    if (this.newMessage.trim() === "") return;
 
-    this.showSuggestions = false; // Ocultar sugerencias al enviar un mensaje
+    this.showSuggestions = false;
     this.messages.push({ text: this.newMessage, isUser: true });
     this.shouldScroll = true;
     const userMessage = this.newMessage;
     this.newMessage = "";
     this.isLoading = true;
+    
+    this.loadingMessage = "estoy buscando la respuesta...";
+    const funnyMessages = [
+      "me distraje con una mosca...",
+      "estaba durmiendo una siesta...",
+      "persiguiendo un puntito rojo en la pared...",
+      "afilando mis uñas en el sofá..."
+    ];
+    let messageIndex = 0;
+
+    this.loadingTimeout = setTimeout(() => {
+      if (!this.isLoading) return;
+      this.loadingMessage = funnyMessages[messageIndex++];
+      this.shouldScroll = true;
+
+      this.funnyMessageInterval = setInterval(() => {
+        if (!this.isLoading) {
+          clearInterval(this.funnyMessageInterval);
+          return;
+        }
+        this.loadingMessage = funnyMessages[messageIndex % funnyMessages.length];
+        messageIndex++;
+        this.shouldScroll = true;
+      }, 4000);
+    }, 3000);
+    
+    let assistantMessage: { text: string, isUser: boolean } | null = null;
 
     try {
-      const response = await fetch("/.netlify/functions/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: userMessage }),
-      });
+        const response = await fetch("/.netlify/functions/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: userMessage }),
+        });
 
-      if (!response.ok) {
-        throw new Error("Failed to get response from the server.");
-      }
+        clearTimeout(this.loadingTimeout);
+        clearInterval(this.funnyMessageInterval);
+        
+        if (!response.ok) {
+            throw new Error(`Failed to get response from the server. Status: ${response.status}`);
+        }
 
-      const data = await response.json();
-      const assistantMessage = data.message;
+        if (!response.body) {
+            throw new Error("Response body is missing");
+        }
 
-      if (assistantMessage) {
-        this.messages.push({ text: assistantMessage, isUser: false });
-        this.shouldScroll = true;
-      }
+        this.isLoading = false;
+        
+        assistantMessage = { text: "", isUser: false };
+        this.messages.push(assistantMessage);
+        
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            assistantMessage.text += decoder.decode(value, { stream: true });
+            this.shouldScroll = true;
+        }
+
     } catch (error) {
-      console.error(error);
-      this.messages.push({ text: "Sorry, something went wrong. Please try again.", isUser: false });
-      this.shouldScroll = true;
+        console.error(error);
+        if (assistantMessage && assistantMessage.text === "") {
+            // If we added a message object but never got any text for it, remove it.
+            this.messages.pop();
+        }
+        this.messages.push({ text: "Sorry, something went wrong. Please try again.", isUser: false });
+        this.shouldScroll = true;
     } finally {
-      this.isLoading = false;
-      this.shouldScroll = true;
+        this.isLoading = false;
+        clearTimeout(this.loadingTimeout);
+        if (this.funnyMessageInterval) {
+          clearInterval(this.funnyMessageInterval);
+        }
+        this.shouldScroll = true;
     }
   }
 }

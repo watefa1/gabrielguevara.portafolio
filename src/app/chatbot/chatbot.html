@@ -26,7 +26,9 @@
           </div>
         }
         @if (isLoading) {
-          <div class="message"><div class="loading-spinner"></div></div>
+          <div class="message assistant-message">
+            <p>{{ loadingMessage }}</p>
+          </div>
         }
         @if (showSuggestions) {
           <div class="suggestions">
