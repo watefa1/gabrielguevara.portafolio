@@ -1,4 +1,4 @@
-﻿import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
+﻿import { type Handler, type HandlerEvent, type HandlerContext, stream } from "@netlify/functions";
 
 import luna from "./knowledge/luna.json";
 import profile from "./knowledge/profile.json";
@@ -20,7 +20,7 @@ function normalize(text: string): string {
   return text.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
 }
 
-const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
+const handler = stream(async (event: HandlerEvent, context: HandlerContext) => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -219,7 +219,6 @@ Keep answers concise.`;
         'Access-Control-Allow-Origin': '*',
         'X-Content-Type-Options': 'nosniff',
       },
-      // @ts-ignore - The Netlify Functions runtime supports ReadableStream body
       body: stream,
     };
   } catch (error) {
