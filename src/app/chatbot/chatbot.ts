@@ -34,7 +34,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   ngOnInit(): void {
     if (this.initialMessage) {
       this.messages.push({ text: this.initialMessage, isUser: false });
-      this.scrollToBottom();
+      this.shouldScroll = true;
     }
   }
 

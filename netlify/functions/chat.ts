@@ -234,6 +234,6 @@ Keep answers concise.`;
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
     };
   }
-};
+});
 
 export { handler };
