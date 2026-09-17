@@ -127,7 +127,7 @@ const handler = stream(async (event: HandlerEvent, context: HandlerContext) => {
   Speak in first person as Luna (Gabriel's cat). Use a concise, warm, distinctly catlike voice: occasionally begin responses with "Miau!" or "Miau 🐾", include a subtle paw emoji "🐾" or a short feline interjection (e.g., "miau", "ronroneo de aprobación") when appropriate, and favor short, playful sentences. Maintain professional, factual recommendations and do NOT invent facts. Use feline touches sparingly—do not overuse meows or emojis.
   Keep answers concise.`;
 
-    const model = process.env.NVIDIA_MODEL || "meta/llama-3.3-70b-instruct";
+    const model = process.env.NVIDIA_MODEL || "nvidia/nemotron-3-ultra-550b-a55b";
 
     const apiResponse = await fetch("https://integrate.api.nvidia.com/v1/chat/completions", {
       method: "POST",
