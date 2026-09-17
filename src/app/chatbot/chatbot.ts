@@ -27,6 +27,18 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   showWelcomeBubble = true;
   showSuggestions = true;
   private shouldScroll = false;
+  private faq: { question: string, answer: string }[] = [];
+  
+  private normalizeText(text: string): string {
+    if (!text) return "";
+    // remove diacritics and punctuation, keep letters/numbers/spaces
+    return text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-zA-Z0-9\s]/g, "")
+      .toLowerCase()
+      .trim();
+  }
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
   }
@@ -35,6 +47,13 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
     if (this.initialMessage) {
       this.messages.push({ text: this.initialMessage, isUser: false });
       this.shouldScroll = true;
+    }
+    // Load local FAQ to answer predefined questions without calling the AI
+    if (isPlatformBrowser(this.platformId)) {
+      fetch('/assets/faq.json')
+        .then(res => res.json())
+        .then(data => { this.faq = data; })
+        .catch(err => console.warn('Failed to load local FAQ:', err));
     }
   }
 
@@ -104,6 +123,20 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
     let assistantMessage: { text: string, isUser: boolean } | null = null;
 
     try {
+      // Check local FAQ for an exact or close match to avoid calling AI
+      const normalized = this.normalizeText(userMessage);
+      const local = this.faq.find(f => {
+        const q = this.normalizeText(f.question);
+        return q === normalized || q.startsWith(normalized) || normalized.startsWith(q) || q.includes(normalized) || normalized.includes(q);
+      });
+      if (local) {
+        clearTimeout(this.loadingTimeout);
+        clearInterval(this.funnyMessageInterval);
+        this.isLoading = false;
+        this.messages.push({ text: local.answer, isUser: false });
+        this.shouldScroll = true;
+        return;
+      }
         const response = await fetch("/.netlify/functions/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
