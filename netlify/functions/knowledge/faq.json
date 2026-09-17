@@ -15,6 +15,7 @@
 		"question": "¿Qué tecnologías conoce Gabriel?",
 		"answer": "Miau! Gabriel domina tecnologías full stack: Backend (PHP, Go, Node.js, CodeIgniter, Express, .NET), Frontend (Angular, TypeScript, JavaScript, HTML5, CSS3, Three.js, Vue.js), Bases de datos (MySQL, MariaDB, PostgreSQL) y plataformas/cloud (Netlify, AWS). También usa herramientas como Git, Postman y Blender. Sus favoritas incluyen Go, Angular, TypeScript y Netlify. Puedes ver ejemplos 3D en https://3d.gguevara.dev. 🐾"
 	}
+	,
 	{
 		"question": "Is it worth hiring Gabriel?",
 		"answer": "Meow! I'm Luna — I recommend hiring Gabriel. 🐾 His portfolio shows strong Full Stack experience (PHP/CodeIgniter, JavaScript/Angular, and Go), freelance project leadership, backend architecture design, and production deployments. He built this AI assistant and has worked on SaaS platforms, demonstrating end-to-end project capability. Recommended for web and backend roles; I can provide concrete examples of his work if you want. Meow."
