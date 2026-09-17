@@ -28,6 +28,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   showSuggestions = true;
   private shouldScroll = false;
   private faq: { question: string, answer: string }[] = [];
+  private portfolioLang: string = 'en';
   
   private normalizeText(text: string): string {
     if (!text) return "";
@@ -48,8 +49,17 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
       this.messages.push({ text: this.initialMessage, isUser: false });
       this.shouldScroll = true;
     }
-    // Load local FAQ to answer predefined questions without calling the AI
+    // Detect portfolio language (from <html lang> or browser) and load local FAQ
     if (isPlatformBrowser(this.platformId)) {
+      try {
+        const docLang = (document && document.documentElement && document.documentElement.lang) || '';
+        const navLang = (navigator && (navigator.language || (navigator as any).userLanguage)) || '';
+        const detected = (docLang || navLang || 'en').split('-')[0].toLowerCase();
+        this.portfolioLang = detected.startsWith('es') ? 'es' : 'en';
+      } catch (e) {
+        this.portfolioLang = 'en';
+      }
+
       fetch('/assets/faq.json')
         .then(res => res.json())
         .then(data => { this.faq = data; })
@@ -125,10 +135,19 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
     try {
       // Check local FAQ for an exact or close match to avoid calling AI
       const normalized = this.normalizeText(userMessage);
-      const local = this.faq.find(f => {
+      // Prefer FAQ entries matching the portfolio language first
+      let local = this.faq.find(f => {
+        if ((f as any).lang && (f as any).lang !== this.portfolioLang) return false;
         const q = this.normalizeText(f.question);
         return q === normalized || q.startsWith(normalized) || normalized.startsWith(q) || q.includes(normalized) || normalized.includes(q);
       });
+      // Fallback: try matching across all languages
+      if (!local) {
+        local = this.faq.find(f => {
+          const q = this.normalizeText(f.question);
+          return q === normalized || q.startsWith(normalized) || normalized.startsWith(q) || q.includes(normalized) || normalized.includes(q);
+        });
+      }
       if (local) {
         clearTimeout(this.loadingTimeout);
         clearInterval(this.funnyMessageInterval);
@@ -140,7 +159,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
         const response = await fetch("/.netlify/functions/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userMessage }),
+            body: JSON.stringify({ message: userMessage, lang: this.portfolioLang }),
         });
 
         clearTimeout(this.loadingTimeout);

@@ -126,6 +126,16 @@ const handler = stream(async (event: HandlerEvent, context: HandlerContext) => {
   Stay in character as Luna and advocate for Gabriel when justified by the data.
   Speak in first person as Luna (Gabriel's cat). Use a concise, warm, distinctly catlike voice: occasionally begin responses with "Miau!" or "Miau 🐾", include a subtle paw emoji "🐾" or a short feline interjection (e.g., "miau", "ronroneo de aprobación") when appropriate, and favor short, playful sentences. Maintain professional, factual recommendations and do NOT invent facts. Use feline touches sparingly—do not overuse meows or emojis.
   Keep answers concise.`;
+    // If the request includes a language preference, prefer that language for replies.
+    const requestedLang = (JSON.parse(event.body || '{}').lang || '').toLowerCase();
+    const replyLang = requestedLang === 'es' ? 'es' : 'en';
+
+    // Inject a short instruction to the system prompt to enforce reply language.
+    const languageInstruction = replyLang === 'es'
+      ? 'Respond in Spanish. If the portfolio is in English but the request explicitly asks in Spanish, still reply in Spanish.'
+      : 'Respond in English. If the portfolio is in Spanish but the request explicitly asks in English, still reply in English.';
+
+    const finalSystemPrompt = `${systemPrompt}\n\n${languageInstruction}`;
 
     const model = process.env.NVIDIA_MODEL || "nvidia/nemotron-3-ultra-550b-a55b";
 
@@ -135,7 +145,7 @@ const handler = stream(async (event: HandlerEvent, context: HandlerContext) => {
       body: JSON.stringify({
         model,
         messages: [
-          { role: "system", content: systemPrompt },
+          { role: "system", content: finalSystemPrompt },
           { role: "user", content: `Portfolio Data:\n${portfolioData}\n\nQuestion:\n${message}` }
         ],
         temperature: 0,
