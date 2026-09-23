@@ -44,21 +44,28 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
   }
 
+  private syncPortfolioLang(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    try {
+      const globalLang = (window as any).lang;
+      const docLang = (document && document.documentElement && document.documentElement.lang) || '';
+      const navLang = (navigator && (navigator.language || (navigator as any).userLanguage)) || '';
+      const detected = (globalLang || docLang || navLang || 'en').split('-')[0].toLowerCase();
+      this.portfolioLang = detected.startsWith('es') ? 'es' : 'en';
+    } catch (e) {
+      this.portfolioLang = 'en';
+    }
+  }
+
   ngOnInit(): void {
     if (this.initialMessage) {
       this.messages.push({ text: this.initialMessage, isUser: false });
       this.shouldScroll = true;
     }
-    // Detect portfolio language (from <html lang> or browser) and load local FAQ
+    // Detect portfolio language (from app state, <html lang> or browser) and load local FAQ
     if (isPlatformBrowser(this.platformId)) {
-      try {
-        const docLang = (document && document.documentElement && document.documentElement.lang) || '';
-        const navLang = (navigator && (navigator.language || (navigator as any).userLanguage)) || '';
-        const detected = (docLang || navLang || 'en').split('-')[0].toLowerCase();
-        this.portfolioLang = detected.startsWith('es') ? 'es' : 'en';
-      } catch (e) {
-        this.portfolioLang = 'en';
-      }
+      this.syncPortfolioLang();
 
       fetch('/assets/faq.json')
         .then(res => res.json())
@@ -76,6 +83,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
 
   scrollToBottom(): void {
     try {
+      if (!this.chatBody || !this.chatBody.nativeElement) return;
       this.chatBody.nativeElement.scrollTop = this.chatBody.nativeElement.scrollHeight;
     } catch (err) {
       console.error("Error scrolling to bottom:", err);
@@ -98,6 +106,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   async sendMessage(): Promise<void> {
     if (this.newMessage.trim() === "") return;
 
+    this.syncPortfolioLang();
     this.showSuggestions = false;
     this.messages.push({ text: this.newMessage, isUser: true });
     this.shouldScroll = true;

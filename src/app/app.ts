@@ -276,7 +276,13 @@ export class App implements AfterViewInit {
 
     setLang(lang: "es" | "en") {
         if (!isPlatformBrowser(this.platformId)) return;
+        this.lang = lang;
         document.documentElement.lang = lang;
+        (window as any).lang = lang;
+        (window as any).setLang = (nextLang: "es" | "en") => {
+            this.lang = nextLang;
+            this.setLang(nextLang);
+        };
         
         const t = this.translations[lang];
     const ids = {
@@ -460,6 +466,12 @@ export class App implements AfterViewInit {
 
     changeLang(event: Event) {
         const lang = (event.target as HTMLSelectElement).value as "es" | "en";
-        // se maneja en ngAfterViewInit con setLang
+        this.lang = lang;
+        this.setLang(lang);
+        if (isPlatformBrowser(this.platformId)) {
+            if ((window as any).setLangContacto) {
+                (window as any).setLangContacto(lang);
+            }
+        }
     }
 }
