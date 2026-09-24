@@ -29,6 +29,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   private shouldScroll = false;
   private faq: { question: string, answer: string }[] = [];
   private portfolioLang: string = 'en';
+  private welcomeBubbleTimer: any = null;
   
   private normalizeText(text: string): string {
     if (!text) return "";
@@ -63,14 +64,29 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
       this.messages.push({ text: this.initialMessage, isUser: false });
       this.shouldScroll = true;
     }
-    // Detect portfolio language (from app state, <html lang> or browser) and load local FAQ
+
     if (isPlatformBrowser(this.platformId)) {
       this.syncPortfolioLang();
+      const dismissed = sessionStorage.getItem('luna-bubble-dismissed');
+      this.showWelcomeBubble = !dismissed;
+
+      if (this.showWelcomeBubble && !this.isOpen) {
+        this.welcomeBubbleTimer = setTimeout(() => {
+          this.showWelcomeBubble = false;
+          sessionStorage.setItem('luna-bubble-dismissed', 'true');
+        }, 4500);
+      }
 
       fetch('/assets/faq.json')
         .then(res => res.json())
         .then(data => { this.faq = data; })
         .catch(err => console.warn('Failed to load local FAQ:', err));
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.welcomeBubbleTimer) {
+      clearTimeout(this.welcomeBubbleTimer);
     }
   }
 
@@ -94,6 +110,15 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
     this.isOpen = !this.isOpen;
     if (this.isOpen) {
       this.showWelcomeBubble = false;
+      if (isPlatformBrowser(this.platformId)) {
+        sessionStorage.setItem('luna-bubble-dismissed', 'true');
+      }
+      return;
+    }
+
+    if (isPlatformBrowser(this.platformId)) {
+      const dismissed = sessionStorage.getItem('luna-bubble-dismissed');
+      this.showWelcomeBubble = !dismissed;
     }
   }
 

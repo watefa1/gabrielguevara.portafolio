@@ -40,6 +40,44 @@ export class App implements AfterViewInit {
         }
     }
 
+    private lastFocusedElement: HTMLElement | null = null;
+    private focusableMenuSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    private updateActiveNavLink(): void {
+        const hash = window.location.hash || '#app-sobre-mi';
+        document.querySelectorAll('.nav-link').forEach((link) => {
+            const anchor = link as HTMLElement;
+            const active = anchor.getAttribute('href') === hash;
+            anchor.classList.toggle('is-active', active);
+        });
+    }
+
+    private trapFocus(event: KeyboardEvent): void {
+        if (!this.menuOpen || event.key !== 'Tab') return;
+        const menu = document.querySelector('.nav-links');
+        if (!(menu instanceof HTMLElement)) return;
+
+        const focusable = Array.from(menu.querySelectorAll(this.focusableMenuSelector)).filter(
+            (item) => !((item as HTMLElement).hasAttribute('disabled'))
+        ) as HTMLElement[];
+
+        if (focusable.length === 0) {
+            event.preventDefault();
+            return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    }
+
 
     translations = {
         es: {
@@ -425,16 +463,23 @@ export class App implements AfterViewInit {
     ngAfterViewInit() {
         if (!isPlatformBrowser(this.platformId)) return;
         this.setLang(this.lang);
+        this.updateActiveNavLink();
+        window.addEventListener('hashchange', () => this.updateActiveNavLink());
 
-    const nav = document.querySelector("nav") as HTMLElement;
-    const navHeight = nav.offsetHeight + 20;
+        const nav = document.querySelector("nav") as HTMLElement | null;
+        const navHeight = nav ? nav.offsetHeight + 20 : 60;
 
         document.querySelectorAll(".nav-links a").forEach(link => {
             link.addEventListener("click", (e) => {
-                e.preventDefault();
                 const targetId = (link as HTMLAnchorElement).getAttribute("href");
                 if (!targetId) return;
 
+                if (!targetId.startsWith("#")) {
+                    this.closeMenu();
+                    return;
+                }
+
+                e.preventDefault();
                 document.querySelectorAll(".proyecto-card.active, .sobre-mi-container.active, #app-contacto.active")
                     .forEach(card => card.classList.remove("active"));
 
@@ -442,7 +487,7 @@ export class App implements AfterViewInit {
                 if (targetId === "#app-sobre-mi") document.querySelector(".sobre-mi-container")?.classList.add("active");
                 if (targetId === "#app-contacto") document.querySelector("#app-contacto")?.classList.add("active");
 
-                const targetEl = document.querySelector(targetId) as HTMLElement;
+                const targetEl = document.querySelector(targetId) as HTMLElement | null;
                 if (!targetEl) return;
 
                 const elementTop = targetEl.getBoundingClientRect().top + window.scrollY;
@@ -451,26 +496,71 @@ export class App implements AfterViewInit {
                 this.closeMenu();
             });
         });
+
+        document.querySelectorAll(".mobile-drawer a[href]").forEach(link => {
+            link.addEventListener("click", () => {
+                this.closeMenu();
+            });
+        });
+
+        document.addEventListener('keydown', this._onKeyDown);
     }
+
+    ngOnDestroy(): void {
+        if (isPlatformBrowser(this.platformId)) {
+            document.removeEventListener('keydown', this._onKeyDown);
+        }
+    }
+
+    private _onKeyDown = (event: KeyboardEvent) => {
+        if (this.menuOpen && event.key === 'Escape') {
+            this.closeMenu();
+            return;
+        }
+
+        this.trapFocus(event);
+    };
 
     toggleMenu() {
         this.menuOpen = !this.menuOpen;
-        const menu = document.querySelector(".nav-links");
-        menu?.classList.toggle("open", this.menuOpen);
+        const menu = document.querySelector('.mobile-drawer');
+        const toggle = document.querySelector('.mobile-toggle');
+        menu?.classList.toggle('open', this.menuOpen);
+        toggle?.classList.toggle('open', this.menuOpen);
+        document.body.classList.toggle('menu-open', this.menuOpen);
+        document.querySelector('.mobile-overlay')?.classList.toggle('open', this.menuOpen);
+
+        if (this.menuOpen) {
+            this.lastFocusedElement = document.activeElement as HTMLElement | null;
+            const firstFocusable = menu?.querySelector('a, button') as HTMLElement | null;
+            firstFocusable?.focus();
+        } else {
+            this.lastFocusedElement?.focus();
+            this.lastFocusedElement = null;
+        }
     }
 
     closeMenu() {
         this.menuOpen = false;
-        document.querySelector(".nav-links")?.classList.remove("open");
+        document.querySelector('.mobile-drawer')?.classList.remove('open');
+        document.querySelector('.mobile-toggle')?.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        document.querySelector('.mobile-overlay')?.classList.remove('open');
+        const trigger = document.querySelector('.mobile-toggle') as HTMLElement | null;
+        trigger?.focus();
     }
 
-    changeLang(event: Event) {
-        const lang = (event.target as HTMLSelectElement).value as "es" | "en";
-        this.lang = lang;
-        this.setLang(lang);
+    changeLang(langOrEvent: Event | "es" | "en") {
+        const lang = typeof langOrEvent === 'string'
+            ? langOrEvent
+            : ((langOrEvent.target as HTMLButtonElement | HTMLSelectElement).value || 'es') as "es" | "en";
+
+        const nextLang = lang === 'en' ? 'en' : 'es';
+        this.lang = nextLang;
+        this.setLang(nextLang);
         if (isPlatformBrowser(this.platformId)) {
             if ((window as any).setLangContacto) {
-                (window as any).setLangContacto(lang);
+                (window as any).setLangContacto(nextLang);
             }
         }
     }
