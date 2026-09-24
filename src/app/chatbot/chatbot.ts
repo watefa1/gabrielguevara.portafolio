@@ -67,14 +67,14 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
 
     if (isPlatformBrowser(this.platformId)) {
       this.syncPortfolioLang();
-      const dismissed = sessionStorage.getItem('luna-bubble-dismissed');
-      this.showWelcomeBubble = !dismissed;
+      sessionStorage.removeItem('luna-bubble-dismissed');
+      this.showWelcomeBubble = true;
 
       if (this.showWelcomeBubble && !this.isOpen) {
         this.welcomeBubbleTimer = setTimeout(() => {
           this.showWelcomeBubble = false;
           sessionStorage.setItem('luna-bubble-dismissed', 'true');
-        }, 4500);
+        }, 15000);
       }
 
       fetch('/assets/faq.json')

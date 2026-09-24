@@ -185,7 +185,7 @@ export class App implements AfterViewInit {
                 phMessage: "Mensaje..."
             },
             chatbot: {
-                welcome: "Puedes hablar conmigo, miau",
+                welcome: "Meow! Puedes hablar conmigo",
                 initial: "Hola, soy Luna. Compañero gatuno de Gabriel. Puedes preguntarme lo que necesites saber de él",
                 placeholder: "O puedes preguntar lo que quieras",
                 suggestions: [

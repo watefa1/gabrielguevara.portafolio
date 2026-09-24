@@ -316,9 +316,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
-    min-height: 60px;
-    padding: 0 16px;
+    gap: 10px;
+    min-height: 64px;
+    padding: 8px 16px;
     width: 100%;
   }
 
@@ -327,8 +327,8 @@ footer {
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 12px;
@@ -355,8 +355,8 @@ footer {
   .mobile-lang {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 4px;
+    gap: 6px;
+    padding: 5px 6px;
     border-radius: 999px;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
@@ -366,14 +366,14 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 38px;
-    min-height: 32px;
-    padding: 6px 8px;
+    min-width: 42px;
+    min-height: 36px;
+    padding: 7px 10px;
     border: 0;
     border-radius: 999px;
     background: transparent;
     color: rgba(230,233,238,0.7);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     cursor: pointer;
@@ -452,17 +452,20 @@ footer {
     flex-direction: column;
     margin-top: 12px;
     gap: 0;
+    align-items: stretch;
   }
 
   .mobile-drawer-links a {
     position: relative;
     display: flex;
     align-items: center;
-    min-height: 52px;
-    padding: 16px 0;
+    justify-content: center;
+    text-align: center;
+    min-height: 54px;
+    padding: 16px 12px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     color: #e6e9ee;
-    font-size: 1.45rem;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.02em;
     text-decoration: none;
@@ -479,12 +482,13 @@ footer {
     gap: 16px;
     margin-top: auto;
     padding-top: 18px;
+    align-items: stretch;
   }
 
   .mobile-contact-btn {
     display: block;
     width: 100%;
-    min-height: 48px;
+    min-height: 50px;
     padding: 14px 16px;
     border-radius: 12px;
     background: #22e6ff;
@@ -497,7 +501,7 @@ footer {
   .mobile-social-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
   }
 
@@ -517,7 +521,7 @@ footer {
 
   .mobile-lang-secondary {
     display: inline-flex;
-    margin-left: auto;
+    margin-left: 0;
   }
 
   .mobile-overlay {
@@ -613,12 +617,12 @@ footer {
   }
 
   .scroll-indicator {
-    margin-top: 0.4rem;
+    margin-top: 1.2rem;
   }
 
   .scroll-arrow {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
   }
 }
 

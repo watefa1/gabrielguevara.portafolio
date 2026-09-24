@@ -36,16 +36,18 @@
 .welcome-bubble {
   background-color: #7f5ad5;
   color: white;
-  padding: 10px 15px;
+  padding: 12px 15px;
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   margin-bottom: 5px;
   position: relative;
   animation: fadeIn 0.5s ease-in-out;
-  max-width: min(220px, calc(100vw - 150px));
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 240px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.4;
+  font-size: 0.95rem;
 }
 
 
@@ -212,11 +214,13 @@
 
   .welcome-bubble {
     margin-bottom: 0;
-    max-width: min(180px, calc(100vw - 120px));
+    max-width: min(260px, calc(100vw - 90px));
     position: relative;
     right: 0;
     transform: none;
-    white-space: nowrap;
+    white-space: normal;
+    font-size: 0.9rem;
+    line-height: 1.45;
   }
 
   .chat-window {
