@@ -1,128 +1,237 @@
 <nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="nav-links">
-    <a id="nav-sobre-mi" href="#app-sobre-mi" (click)="closeMenu()">Sobre mí</a>
-    <a id="nav-proyectos" href="#app-proyectos" (click)="closeMenu()">Proyectos</a>
-    <a id="nav-skills" href="#app-skills" (click)="closeMenu()">Skills</a>
-    <a id="nav-contacto" href="#app-contacto" (click)="closeMenu()">Contacto</a>
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a id="nav-sobre-mi" class="nav-link" href="#app-sobre-mi" (click)="closeMenu()">Sobre mí</a>
+      <a id="nav-proyectos" class="nav-link" href="#app-proyectos" (click)="closeMenu()">Proyectos</a>
+      <a id="nav-experiencia" class="nav-link" href="#app-experiencia" (click)="closeMenu()">Experiencia</a>
+      <a id="nav-skills" class="nav-link" href="#app-skills" (click)="closeMenu()">Skills</a>
+      <a id="nav-contacto" class="nav-link" href="#app-contacto" (click)="closeMenu()">Contacto</a>
+    </div>
 
     <button class="lang-btn" type="button" (click)="toggleLang()" aria-label="Cambiar idioma">
-      <svg class="lang-globe-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+      <svg class="lang-globe-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.455 12a7.024 7.024 0 0 0 3.072-2.472zM12.5 13.5a9.267 9.267 0 0 1-.64 1.539 6.7 6.7 0 0 1-.597.933A7.025 7.025 0 0 0 13.745 12H12.5z"/>
       </svg>
       <span class="lang-icon" *ngIf="lang === 'es'">ES</span>
       <span class="lang-icon" *ngIf="lang === 'en'">EN</span>
     </button>
-  </div>
 
-  <div class="mobile-nav" aria-label="Menu mobile">
-    <div class="mobile-nav-bar">
-      <div class="mobile-lang" role="group" aria-label="Seleccionar idioma">
-        <button type="button" class="mobile-lang-option" [class.active]="lang === 'es'" (click)="changeLang('es')" aria-pressed="true">ES</button>
-        <button type="button" class="mobile-lang-option" [class.active]="lang === 'en'" (click)="changeLang('en')" aria-pressed="false">EN</button>
-      </div>
+    <a class="nav-cta cv-btn-es" href="assets/cv_gabrielguevara_es.pdf" download>Descargar CV</a>
+    <a class="nav-cta cv-btn-en" href="assets/cv-gabriel-guevara.pdf" download style="display:none">Download CV</a>
 
-      <button class="mobile-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="mobile-menu" [attr.aria-label]="menuOpen ? 'Cerrar menú' : 'Abrir menú'">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+    <div class="mobile-nav" aria-label="Menu mobile">
+      <div class="mobile-nav-bar">
+        <div class="mobile-lang" role="group" aria-label="Seleccionar idioma">
+          <button type="button" class="mobile-lang-option" [class.active]="lang === 'es'" (click)="changeLang('es')" aria-pressed="true">ES</button>
+          <button type="button" class="mobile-lang-option" [class.active]="lang === 'en'" (click)="changeLang('en')" aria-pressed="false">EN</button>
+        </div>
 
-    <div id="mobile-menu" class="mobile-drawer" [class.open]="menuOpen" role="dialog" aria-modal="true" aria-label="Menú principal" aria-hidden="false">
-      <div class="mobile-drawer-header">
-        <span class="mobile-drawer-title">MENÚ</span>
-        <button class="mobile-close-btn" type="button" (click)="closeMenu()" aria-label="Cerrar menú">
+        <button class="mobile-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="mobile-menu" [attr.aria-label]="menuOpen ? 'Cerrar menú' : 'Abrir menú'">
+          <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
+    </div>
+  </div>
+</nav>
 
-      <div class="mobile-drawer-links">
-        <a href="#app-sobre-mi" (click)="closeMenu()">Sobre mí</a>
-        <a href="#app-proyectos" (click)="closeMenu()">Proyectos</a>
-        <a href="#app-skills" (click)="closeMenu()">Skills</a>
+<div class="mobile-overlay" [class.open]="menuOpen" (click)="closeMenu()" aria-hidden="true"></div>
+
+<div id="mobile-menu" class="mobile-drawer" [class.open]="menuOpen" role="dialog" aria-modal="true" aria-label="Menú principal">
+<div class="mobile-drawer-header">
+  <span class="mobile-drawer-title">MENÚ</span>
+  <button class="mobile-close-btn" type="button" (click)="closeMenu()" aria-label="Cerrar menú">
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+<div class="mobile-drawer-links">
+  <a class="nav-link" href="#app-sobre-mi" (click)="closeMenu()">Sobre mí</a>
+  <a class="nav-link" href="#app-proyectos" (click)="closeMenu()">Proyectos</a>
+  <a class="nav-link" href="#app-experiencia" (click)="closeMenu()">Experiencia</a>
+  <a class="nav-link" href="#app-skills" (click)="closeMenu()">Skills</a>
+  <a class="nav-link" href="#app-contacto" (click)="closeMenu()">Contacto</a>
+</div>
+
+<div class="mobile-drawer-footer">
+  <a class="mobile-contact-btn" href="#app-contacto" (click)="closeMenu()">Contáctame</a>
+  <div class="mobile-social-row">
+    <a href="https://github.com/watefa1" target="_blank" rel="noopener noreferrer" class="mobile-social-pill" aria-label="GitHub">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.303-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.656 1.653.244 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.103.823 2.222 0 1.604-.014 2.896-.014 3.286 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/gabriel-guevara-g/" target="_blank" rel="noopener noreferrer" class="mobile-social-pill" aria-label="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.205 24 24 23.227 24 22.271V1.729C24 .774 23.205 0 22.225 0zM7.088 20.452H3.545V9H7.09v11.452H7.088zM5.317 7.572c-1.13 0-2.045-.918-2.045-2.048 0-1.13.915-2.048 2.045-2.048 1.127 0 2.042.918 2.042 2.048 0 1.13-.915 2.042-2.042 2.048zM20.452 20.452h-3.544v-5.605c0-1.336-.026-3.057-1.863-3.057-1.864 0-2.15 1.455-2.15 2.957v5.705h-3.545V9h3.404v1.561h.048c.474-.897 1.632-1.844 3.36-1.844 3.595 0 4.259 2.368 4.259 5.451v6.284z"/>
+      </svg>
+    </a>
+    <div class="mobile-lang mobile-lang-secondary" role="group" aria-label="Cambiar idioma">
+      <button type="button" class="mobile-lang-option" [class.active]="lang === 'es'" (click)="changeLang('es')" aria-label="Cambiar a español">ES</button>
+      <button type="button" class="mobile-lang-option" [class.active]="lang === 'en'" (click)="changeLang('en')" aria-label="Cambiar a inglés">EN</button>
+    </div>
+  </div>
+</div>
+</div>
+<header class="hero" id="inicio">
+  <div class="bg-deco"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>
+          <span id="header-subtitle">Hola, soy</span>
+          <span class="grad" id="header-title">Gabriel Guevara</span>
+        </h1>
+        <div class="role">Full Stack Web Developer</div>
+        <p class="lead" id="header-desc">
+          Desarrollador Full Stack con más de 4 años llevando sistemas a producción: en Alephoo trabajo con PHP, Go y Angular sobre AWS, y manejo integraciones de IA aplicada al producto.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary cv-btn-es" href="assets/cv_gabrielguevara_es.pdf" download>
+            Descargar CV
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-primary cv-btn-en" href="assets/cv-gabriel-guevara.pdf" download style="display:none">
+            Download CV
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#app-proyectos" class="btn btn-ghost" *ngIf="lang === 'es'">Ver proyectos</a>
+          <a href="#app-proyectos" class="btn btn-ghost" *ngIf="lang === 'en'">View projects</a>
+          <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" *ngIf="lang === 'es'">Portfolio 3D ↗</a>
+          <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" *ngIf="lang === 'en'">3D Portfolio ↗</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://www.linkedin.com/in/gabriel-guevara-g/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </a>
+          <a href="https://github.com/watefa1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 .71.71 1.29 1.26 1.06.28-.12.52-.23.71-.32C13.75 14.47 16 11.5 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+          <a href="mailto:gaby2001@live.com.ar" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.68-.5L12 11.35 19.32 5H4.68zM20 6.87l-7.35 5.88a1 1 0 0 1-1.3 0L4 6.87V18.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V6.87z"/></svg>
+          </a>
+        </div>
       </div>
+      <div class="hero-photo">
+        <div class="photo-glow"></div>
+        <div class="photo-frame"><img src="/images/foto.jpeg" alt="Gabriel Guevara"></div>
+        <div class="chip-float cf-1" id="hero-chip-1">Full Stack en <b>Alephoo</b></div>
+        <div class="chip-float cf-2"><b>PHP</b> · Go · JavaScript · Vue</div>
+        <div class="chip-float cf-3" id="hero-chip-3">Asistente IA <b>Luna</b> integrado</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <a href="#app-sobre-mi" class="scroll-arrow" aria-label="Bajar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 5v14m0 0l-7-7m7 7l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</header>
 
-      <div class="mobile-drawer-footer">
-        <a class="mobile-contact-btn" href="#app-contacto" (click)="closeMenu()">Contáctame</a>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>PHP</span><span>Angular</span><span>Go</span><span>TypeScript</span><span>Node.js</span><span>Three.js</span><span>MySQL</span><span>PostgreSQL</span><span>AWS</span><span>Netlify</span><span>Blender</span><span>REST APIs</span>
+    <span>PHP</span><span>Angular</span><span>Go</span><span>TypeScript</span><span>Node.js</span><span>Three.js</span><span>MySQL</span><span>PostgreSQL</span><span>AWS</span><span>Netlify</span><span>Blender</span><span>REST APIs</span>
+  </div>
+</div>
 
-        <div class="mobile-social-row">
-          <a href="https://github.com/watefa1" target="_blank" rel="noopener noreferrer" class="mobile-social-pill" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.303-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.656 1.653.244 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.103.823 2.222 0 1.604-.014 2.896-.014 3.286 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/gabriel-guevara-g/" target="_blank" rel="noopener noreferrer" class="mobile-social-pill" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.205 24 24 23.227 24 22.271V1.729C24 .774 23.205 0 22.225 0zM7.088 20.452H3.545V9H7.09v11.452H7.088zM5.317 7.572c-1.13 0-2.045-.918-2.045-2.048 0-1.13.915-2.048 2.045-2.048 1.127 0 2.042.918 2.042 2.048 0 1.13-.915 2.048-2.042 2.048zM20.452 20.452h-3.544v-5.605c0-1.336-.026-3.057-1.863-3.057-1.864 0-2.15 1.455-2.15 2.957v5.705h-3.545V9h3.404v1.561h.048c.474-.897 1.632-1.844 3.36-1.844 3.595 0 4.259 2.368 4.259 5.451v6.284z"/>
-            </svg>
-          </a>
+<main>
+  <app-sobre-mi id="app-sobre-mi" [lang]="lang"></app-sobre-mi>
 
-          <div class="mobile-lang mobile-lang-secondary" role="group" aria-label="Cambiar idioma">
-            <button type="button" class="mobile-lang-option" [class.active]="lang === 'es'" (click)="changeLang('es')" aria-label="Cambiar a español">ES</button>
-            <button type="button" class="mobile-lang-option" [class.active]="lang === 'en'" (click)="changeLang('en')" aria-label="Cambiar a inglés">EN</button>
+  <app-proyectos id="app-proyectos" [lang]="lang"></app-proyectos>
+
+  <section class="band" id="app-experiencia">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker">{{ lang === 'es' ? 'Trayectoria' : 'Career' }}</div>
+        <h2 class="sec-title">{{ lang === 'es' ? 'Experiencia y formación' : 'Experience & education' }}</h2>
+      </div>
+      <div class="exp-grid">
+        <div class="timeline reveal">
+          <div class="titem">
+            <div class="period">{{ lang === 'es' ? 'SEP 2022 — ACTUALIDAD · REMOTO / PRESENCIAL' : 'SEP 2022 — PRESENT · REMOTE / ONSITE' }}</div>
+            <h3>Full Stack Developer</h3>
+            <div class="comp">Alephoo</div>
+            <p>{{ lang === 'es'
+              ? 'Soluciones web a medida con PHP (CodeIgniter) y servicios backend en Go orientados a concurrencia. APIs REST para integración entre sistemas, infraestructura y deploys productivos en AWS (EC2, ECS, Amplify, Lambda, CloudWatch), manejo avanzado de MySQL/MariaDB e IA aplicada al producto. Testing con PHPUnit y code reviews.'
+              : 'Custom web solutions with PHP (CodeIgniter) and concurrency-focused backend services in Go. REST APIs for system integrations, AWS infrastructure and production deployments (EC2, ECS, Amplify, Lambda, CloudWatch), advanced MySQL/MariaDB, and applied AI within the product. Testing with PHPUnit and code reviews.' }}</p>
+            <div class="tags">
+              <span class="tag">PHP</span><span class="tag">Go</span><span class="tag">AWS</span><span class="tag">REST APIs</span><span class="tag">{{ lang === 'es' ? 'IA aplicada' : 'Applied AI' }}</span>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="period">{{ lang === 'es' ? 'SEP 2025 — ACTUALIDAD · REMOTO' : 'SEP 2025 — PRESENT · REMOTE' }}</div>
+            <h3>{{ lang === 'es' ? 'Fundador & Full Stack Dev' : 'Founder & Full Stack Dev' }}</h3>
+            <div class="comp">MoonPixel · Freelance</div>
+            <p>{{ lang === 'es'
+              ? 'Proyectos de clientes de punta a punta: frontend con TypeScript y Angular, backend con Java (Spring Boot) y PHP, integración de pasarelas de pago y servicios de terceros, hosting VPS/Netlify, dominios, DNS y optimización de performance.'
+              : 'End-to-end client projects: TypeScript/Angular frontends, Java (Spring Boot) and PHP backends, payment gateway and third-party integrations, VPS/Netlify hosting, domains, DNS and performance optimization.' }}</p>
+            <div class="tags">
+              <span class="tag">Angular</span><span class="tag">Java · Spring Boot</span><span class="tag">{{ lang === 'es' ? 'Pagos' : 'Payments' }}</span><span class="tag">VPS / DNS</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="edu-card">
+            <div class="period">{{ lang === 'es' ? '2023 — ACTUALIDAD' : '2023 — PRESENT' }}</div>
+            <h4>{{ lang === 'es' ? 'Ingeniería en Sistemas' : 'Systems Engineering' }}</h4>
+            <span>UTN FRD · {{ lang === 'es' ? 'En curso' : 'In progress' }}</span>
+            <p>{{ lang === 'es' ? 'Desarrollo de software, algoritmos, arquitectura de computadoras y gestión de proyectos.' : 'Software development, algorithms, computer architecture and project management.' }}</p>
+          </div>
+          <div class="edu-card">
+            <div class="period">{{ lang === 'es' ? 'COMPLETADO' : 'COMPLETED' }}</div>
+            <h4>{{ lang === 'es' ? 'Técnico en Computación' : 'Computer Technician' }}</h4>
+            <span>{{ lang === 'es' ? 'Escuela Técnica N°4 — Garín' : 'Technical School No. 4 — Garín' }}</span>
+            <p>{{ lang === 'es' ? 'Especialización en hardware, software y redes. Base sólida de IT.' : 'Hardware, software and networking specialization. A solid IT foundation.' }}</p>
+          </div>
+          <div class="edu-card" style="border-color:rgba(25,243,255,.25)">
+            <div class="period">{{ lang === 'es' ? 'SIEMPRE' : 'ALWAYS' }}</div>
+            <h4>{{ lang === 'es' ? 'Autodidacta' : 'Self-taught' }}</h4>
+            <p>{{ lang === 'es' ? 'Aprendizaje constante aplicado en producción, dentro y fuera del trabajo.' : 'Constant learning applied in production, on and off the job.' }}</p>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="mobile-overlay" [class.open]="menuOpen" (click)="closeMenu()" aria-hidden="true"></div>
+  <div class="band-alt">
+    <app-skills id="app-skills" [lang]="lang"></app-skills>
   </div>
-</nav>
 
-<header>
-  <div>
-    <h4 id="header-subtitle" class="text-2xl md:text-4xl font-bold mt-4">
-      Hola, me llamo
-    </h4>
-    <h1 id="header-title" class="text-6xl md:text-8xl font-bold">
-      Gabriel Esteban Guevara
-    </h1>
-    <h2 id="header-title" class="text-6xl md:text-8xl font-bold">
-      Full Stack Web Developer
-    </h2>
-    <h4 id="header-desc" class="mt-4 max-w-lg mx-auto text-center text-gray-300 text-lg leading-relaxed">
-      Bienvenido a mi portfolio, un espacio para conocer un poco sobre las herramientas y las tecnologías que manejo.
-    </h4>
-    <div class="hero-btns" style="display:flex; gap:1.5rem; justify-content:center; margin-top:2rem; flex-wrap:wrap;">
-  <a href="#app-proyectos" class="btn-hero btn-hero-primary" *ngIf="lang === 'es'">Ver Proyectos</a>
-  <a href="#app-proyectos" class="btn-hero btn-hero-primary" *ngIf="lang === 'en'">View Projects</a>
-  <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="btn-hero btn-hero-secondary" *ngIf="lang === 'es'">Portfolio 3D</a>
-  <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="btn-hero btn-hero-secondary" *ngIf="lang === 'en'">3D Portfolio</a>
-  <a href="assets/cv_gabrielguevara_es.pdf" download class="btn-hero btn-hero-secondary" *ngIf="lang === 'es'">Descargar CV</a>
-  <a href="assets/cv-gabriel-guevara.pdf" download class="btn-hero btn-hero-secondary" *ngIf="lang === 'en'">Download CV</a>
+  <section class="band">
+    <div class="wrap">
+      <div class="luna-band reveal">
+        <div>
+          <div class="sec-kicker kicker-violet">{{ lang === 'es' ? 'Diferencial' : 'What sets it apart' }}</div>
+          <h3>{{ lang === 'es' ? 'Este portfolio tiene su propia IA: Luna' : 'This portfolio has its own AI: Luna' }}</h3>
+          <p>{{ lang === 'es'
+            ? 'Un asistente con Netlify Functions que responde preguntas sobre mi experiencia, proyectos y skills usando una base de conocimiento estructurada. La misma IA aplicada que uso en producción en Alephoo.'
+            : 'A Netlify Functions assistant that answers questions about my experience, projects and skills using a structured knowledge base. The same applied AI I use in production at Alephoo.' }}</p>
+          <div>
+            <span class="q">{{ lang === 'es' ? '"¿Qué tecnologías usa?"' : '"What technologies does he use?"' }}</span>
+            <span class="q">{{ lang === 'es' ? '"Contame sobre QuizZIA"' : '"Tell me about QuizZIA"' }}</span>
+            <span class="q">{{ lang === 'es' ? '"¿Dónde trabajó?"' : '"Where has he worked?"' }}</span>
+          </div>
+        </div>
+        <button type="button" class="btn btn-ghost" (click)="openLuna()" style="border-color:rgba(122,92,255,.5)">{{ lang === 'es' ? 'Probá a Luna' : 'Try Luna' }}</button>
+      </div>
     </div>
-    
-    <div class="scroll-indicator">
-      <a href="#app-sobre-mi" class="scroll-arrow">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</header>
+  </section>
 
-<main class="p-6">
-  <div class="glass-container">
-    <app-sobre-mi id="app-sobre-mi"></app-sobre-mi>
-  </div>
-
-  <div class="glass-container">
-    <app-proyectos id="app-proyectos"></app-proyectos>
-  </div>
-
-  <div class="glass-container">
-    <app-skills id="app-skills"></app-skills>
-  </div>
-
-  <div class="glass-container" style="margin-top:60px;">
-    <app-contacto id="app-contacto"></app-contacto>
-  </div>
+  <section class="band-alt" id="app-contacto-band">
+    <app-contacto id="app-contacto" [lang]="lang"></app-contacto>
+  </section>
 </main>
 
-  <app-chatbot [welcomeMessage]="translations[lang].chatbot.welcome" [initialMessage]="translations[lang].chatbot.initial" [placeholder]="translations[lang].chatbot.placeholder" [suggestions]="translations[lang].chatbot.suggestions"></app-chatbot>
+<app-chatbot [welcomeMessage]="translations[lang].chatbot.welcome" [initialMessage]="translations[lang].chatbot.initial" [placeholder]="translations[lang].chatbot.placeholder" [suggestions]="translations[lang].chatbot.suggestions"></app-chatbot>
 
-  <footer class="text-center p-4 bg-gray-200">
-  <p id="footer-text">© 2026 Gabriel Esteban Guevara</p>
-  </footer>
+<footer>
+  <div class="wrap foot">
+    <p><span id="footer-text">© 2026 Gabriel Esteban Guevara</span></p>
+    <span>Buenos Aires, Argentina · Angular + Netlify</span>
+  </div>
+</footer>

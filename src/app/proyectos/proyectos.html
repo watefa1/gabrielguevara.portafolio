@@ -1,201 +1,178 @@
-<section id="app-proyectos" class="mb-8 proyectos-container">
-  <div class="proyectos-grid">
-    <div class="proyecto-card">
-      <h3 id="proyecto-card-title" class="proyecto-titulo-acento">Catálogo Web Profesional</h3>
-      
-  <div class="proyecto-imagen-scroll-container" style="box-shadow:0 0 24px 4px #d19ede, 0 4px 24px rgba(0,0,0,0.18);border:4px solid #d19ede;">
-    <a href="https://bazarhakunamatata.com.ar/" target="_blank">
-      <img src="assets/logos/catalogo-web.png" alt="Catálogo Web" class="proyecto-imagen-real" />
-    </a>
-  </div>
-
-      <p id="proyecto-card-desc" class="proyecto-descripcion">
-        Desarrollo integral de una plataforma web para catálogo de productos, optimizada para alto rendimiento y posicionamiento SEO. El proyecto incluyó el diseño UI/UX, adquisición y configuración de dominio y hosting, implementación de base de datos, desarrollo backend y frontend, y puesta en producción.
+<section class="band" id="proyectos-section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Proyectos</div>
+      <h2 class="sec-title" id="proyectos-title">Proyectos</h2>
+      <p class="sec-sub">
+        {{ lang === 'es'
+          ? 'Proyectos freelance, personales y experimentales. Cada uno con su stack, estado y links reales.'
+          : 'Freelance, personal and experimental projects. Each one with its stack, status and real links.' }}
       </p>
-      <div class="proyecto-badges">
-        <span class="badge badge-dotnet">.NET</span>
-        <span class="badge badge-csharp">C#</span>
-        <span class="badge badge-sql">SQL Server</span>
-        <span class="badge badge-seo">SEO</span>
-        <span class="badge badge-js">JavaScript</span>
-      </div>
-      <div class="proyecto-rol"><strong id="proyecto-card-rol-label">Rol: </strong> <span id="proyecto-card-rol">Full Stack Developer</span></div>
-      <div class="proyecto-resp"><strong id="proyecto-card-resp-label">Responsabilidades: </strong> <span id="proyecto-card-resp">Diseño, desarrollo, arquitectura, compra de dominio y hosting, configuración de base de datos, optimización SEO, despliegue y mantenimiento.</span></div>
-      <div class="proyecto-botones">
-        <a href="https://bazarhakunamatata.com.ar/" target="_blank" id="proyecto-card-btn" class="btn-proyecto">Ver Proyecto</a>
-      </div>
     </div>
 
-    <div class="proyecto-card">
-      <h3 id="proyecto-card-title-2" class="proyecto-titulo-acento">Sistema Solar Interactivo</h3>
-
-  <div class="proyecto-imagen-scroll-container" style="box-shadow:0 0 24px 4px #19f3ff, 0 4px 24px rgba(0,0,0,0.18);border:4px solid #19f3ff;">
-    <a href="https://solar-system-gg.netlify.app/" target="_blank">      
-      <img src="assets/logos/sistemasolar.png" alt="Sistema Solar Interactivo" class="proyecto-imagen-real" />
-    </a>
-  </div>
-      <p id="proyecto-card-desc-2" class="proyecto-descripcion">
-        Simulación interactiva en 3D del sistema solar con animaciones realistas, texturas de alta calidad generadas con IA y controles intuitivos. Los usuarios pueden explorar planetas, modificar la velocidad de rotación y órbita, y obtener información detallada de cada cuerpo celeste.
-      </p>
-      <div class="proyecto-badges">
-        <span class="badge badge-react">React</span>
-        <span class="badge badge-three">Three.js</span>
-        <span class="badge badge-fiber">React Three Fiber</span>
-        <span class="badge badge-vite">Vite</span>
-        <span class="badge badge-netlify">Netlify</span>
-        <span class="badge badge-ai">IA</span>
-      </div>
-      <div class="proyecto-rol"><strong id="proyecto-card-rol-label-2">Rol: </strong> <span id="proyecto-card-rol-2">Frontend Developer & 3D Artist</span></div>
-      <div class="proyecto-resp"><strong id="proyecto-card-resp-label-2">Responsabilidades: </strong> <span id="proyecto-card-resp-2">Desarrollo 3D, generación de texturas con IA, optimización de rendimiento, diseño de interfaz, animaciones y despliegue.</span></div>
-      <div class="proyecto-botones">
-        <a href="https://solar-system-gg.netlify.app/" target="_blank" id="proyecto-card-btn-2" class="btn-proyecto">Ver Proyecto</a>
-        <a href="https://github.com/watefa1/solar-system-sim" target="_blank" class="btn-codigo">
-          <svg class="github-icon" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-          </svg>
-          <span id="proyecto-github-btn-2">Ver Código</span>
-        </a>
-      </div>
+    <div class="filters reveal">
+      <button
+        *ngFor="let f of filters"
+        type="button"
+        class="filter"
+        [class.active]="filter === f.key"
+        (click)="onFilterChange(f.key)">
+        {{ lang === 'es' ? f.es : f.en }}
+      </button>
     </div>
 
-    <div class="proyecto-card">
-      <h3 id="proyecto-card-title-3" class="proyecto-titulo-acento">Landing Page Autogestionable</h3>
+    <div class="proj-grid">
+      <!-- QuizZIA (destacada) -->
+      <article class="proj-card feat" *ngIf="filter === 'all' || ['ia', 'web'].includes(filter)" style="--pc:#f43f5e">
+        <div class="proj-img"><img src="assets/logos/quizzia.png" alt="QuizZIA"></div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title-7">QuizZIA - Generador de Quiz con IA</h3>
+            <span class="status">Full Stack</span>
+          </div>
+          <p id="proyecto-card-desc-7" data-desc="7" (click)="toggleDesc(7)" [class.line-clamp]="!expandedDescs.has(7)" [class.expanded]="expandedDescs.has(7)">Desarrollo full-stack de plataforma educativa de quizzes con IA, con generación automática de preguntas por tema y niveles de dificultad, lógica de juego con vidas y progreso por etapas, explicaciones pedagógicas ante errores, carga de contenido desde PDF y arquitectura segura en backend con rate limiting, validación de inputs, token de acceso y protección anti prompt-injection.</p>
+          <button *ngIf="clampedDescs.has(7)" type="button" class="desc-toggle" (click)="toggleDesc(7)">{{ lang === 'es' ? (expandedDescs.has(7) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(7) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">Angular</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">IA</span></div>
+          <div class="proj-links">
+            <a href="https://silver-cupcake-8a5444.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <span id="proyecto-card-btn-7">Ver Proyecto</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+            <a href="https://github.com/watefa1/quiz-ai-app" target="_blank" rel="noopener noreferrer">
+              <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 .71.71 1.29 1.26 1.06.28-.12.52-.23.71-.32C13.75 14.47 16 11.5 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span id="proyecto-github-btn-7">Ver Código</span></a>
+          </div>
+        </div>
+      </article>
 
-  <div class="proyecto-imagen-scroll-container" style="box-shadow:0 0 24px 4px #ffa500, 0 4px 24px rgba(0,0,0,0.18);border:4px solid #ffa500;">
-    <a href="https://paginahamburgueseria.netlify.app/" target="_blank">      
-      <img src="assets/logos/hamburgueseria.png" alt="Página Web Hamburguesería" class="proyecto-imagen-real" />
-    </a>
-  </div>
-      <p id="proyecto-card-desc-3" class="proyecto-descripcion">
-        Sitio web moderno para hamburguesería con sistema de gestión de pedidos y menú interactivo. Implementación de base de datos en tiempo real, optimización SEO avanzada y diseño responsivo para ofrecer una experiencia de usuario fluida en todos los dispositivos.
-      </p>
-      <div class="proyecto-badges">
-        <span class="badge badge-angular">Angular</span>
-        <span class="badge badge-supabase">Supabase</span>
-        <span class="badge badge-seo">SEO</span>
-        <span class="badge badge-netlify">Netlify</span>
-        <span class="badge badge-ts">TypeScript</span>
-      </div>
-      <div class="proyecto-rol"><strong id="proyecto-card-rol-label-3">Rol: </strong> <span id="proyecto-card-rol-3">Full Stack Developer</span></div>
-      <div class="proyecto-resp"><strong id="proyecto-card-resp-label-3">Responsabilidades: </strong> <span id="proyecto-card-resp-3">Desarrollo frontend y backend, integración con Supabase, optimización SEO, diseño responsive y despliegue en Netlify.</span></div>
-      <div class="proyecto-botones">
-        <a href="https://paginahamburgueseria.netlify.app/" target="_blank" id="proyecto-card-btn-3" class="btn-proyecto">Ver Proyecto</a>
-      </div>
-    </div>
+      <!-- Sistema Solar -->
+      <article class="proj-card" *ngIf="filter === 'all' || ['3d'].includes(filter)" style="--pc:#19f3ff">
+        <div class="proj-img"><img src="assets/logos/sistemasolar.png" alt="Sistema Solar Interactivo"></div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title-2">Sistema Solar Interactivo</h3>
+            <span class="status">Three.js</span>
+          </div>
+          <p id="proyecto-card-desc-2" data-desc="2" (click)="toggleDesc(2)" [class.line-clamp]="!expandedDescs.has(2)" [class.expanded]="expandedDescs.has(2)">Simulación interactiva en 3D del sistema solar con animaciones realistas, texturas de alta calidad generadas con IA y controles intuitivos. Los usuarios pueden explorar planetas, modificar la velocidad de rotación y órbita, y obtener información detallada de cada cuerpo celeste.</p>
+          <button *ngIf="clampedDescs.has(2)" type="button" class="desc-toggle" (click)="toggleDesc(2)">{{ lang === 'es' ? (expandedDescs.has(2) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(2) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">Three.js</span><span class="tag">Angular</span><span class="tag">Blender</span></div>
+          <div class="proj-links">
+            <a href="https://solar-system-gg.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <span id="proyecto-card-btn-2">Ver Proyecto</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+            <a href="https://github.com/watefa1/solar-system-sim" target="_blank" rel="noopener noreferrer">
+              <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 .71.71 1.29 1.26 1.06.28-.12.52-.23.71-.32C13.75 14.47 16 11.5 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span id="proyecto-github-btn-2">Ver Código</span></a>
+          </div>
+        </div>
+      </article>
 
-    <div class="proyecto-card">
-      <h3 id="proyecto-card-title-4" class="proyecto-titulo-acento">Moon Pixel - Landing Page Profesional</h3>
+      <!-- Catálogo Web -->
+      <article class="proj-card" *ngIf="filter === 'all' || ['web'].includes(filter)" style="--pc:#d19ede">
+        <div class="proj-img"><img src="assets/logos/catalogo-web.png" alt="Catálogo Web"></div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title">Catálogo Web Profesional</h3>
+            <span class="status">{{ lang === 'es' ? 'Producción' : 'Production' }}</span>
+          </div>
+          <p id="proyecto-card-desc" data-desc="1" (click)="toggleDesc(1)" [class.line-clamp]="!expandedDescs.has(1)" [class.expanded]="expandedDescs.has(1)">Desarrollo integral de una plataforma web para catálogo de productos, optimizada para alto rendimiento y posicionamiento SEO. El proyecto incluyó el diseño UI/UX, adquisición y configuración de dominio y hosting, implementación de base de datos, desarrollo backend y frontend, y puesta en producción.</p>
+          <button *ngIf="clampedDescs.has(1)" type="button" class="desc-toggle" (click)="toggleDesc(1)">{{ lang === 'es' ? (expandedDescs.has(1) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(1) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">SEO</span></div>
+          <div class="proj-links">
+            <a href="https://bazarhakunamatata.com.ar/" target="_blank" rel="noopener noreferrer">
+            <span id="proyecto-card-btn">Ver sitio en vivo</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-  <div class="proyecto-imagen-scroll-container" style="box-shadow:0 0 24px 4px #8a2be2, 0 4px 24px rgba(0,0,0,0.18);border:4px solid #8a2be2;">
-    <a href="https://moonpixel.com.ar/" target="_blank">      
-      <img src="assets/logos/moonpixelcap.png" alt="Moon Pixel Landing Page" class="proyecto-imagen-real" />
-    </a>
-  </div>
-      <p id="proyecto-card-desc-4" class="proyecto-descripcion">
-        Desarrollo completo de landing page multipágina con 7 secciones interactivas. Implementación de diseño responsive mobile-first, animaciones on-scroll con Intersection Observer API, formulario de contacto integrado con Netlify Forms y protección anti-spam, junto con optimización SEO avanzada y efectos parallax.
-      </p>
-      <div class="proyecto-badges">
-        <span class="badge badge-html">HTML5</span>
-        <span class="badge badge-css">CSS3</span>
-        <span class="badge badge-js">JavaScript</span>
-        <span class="badge badge-netlify">Netlify</span>
-        <span class="badge badge-seo">SEO</span>
-        <span class="badge badge-git">Git</span>
-      </div>
-      <div class="proyecto-rol"><strong id="proyecto-card-rol-label-4">Rol: </strong> <span id="proyecto-card-rol-4">Full Stack Developer</span></div>
-      <div class="proyecto-resp"><strong id="proyecto-card-resp-label-4">Responsabilidades: </strong> <span id="proyecto-card-resp-4">Desarrollo de landing page multipágina, diseño responsive mobile-first, animaciones on-scroll con Intersection Observer, integración de formularios Netlify con anti-spam, optimización SEO, efectos parallax, integración WhatsApp Business API y despliegue en Netlify.</span></div>
-      <div class="proyecto-botones">
-        <a href="https://moonpixel.com.ar/" target="_blank" id="proyecto-card-btn-4" class="btn-proyecto">Ver Proyecto</a>
-      </div>
-    </div>
+      <!-- Hamburguesería -->
+      <article class="proj-card" *ngIf="filter === 'all' || ['web'].includes(filter)" style="--pc:#ffa500">
+        <div class="proj-img"><img src="assets/logos/hamburgueseria.png" alt="Landing Hamburguesería"></div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title-3">Landing Page Autogestionable</h3>
+            <span class="status">{{ lang === 'es' ? 'Producción' : 'Production' }}</span>
+          </div>
+          <p id="proyecto-card-desc-3" data-desc="3" (click)="toggleDesc(3)" [class.line-clamp]="!expandedDescs.has(3)" [class.expanded]="expandedDescs.has(3)">Sitio web moderno para hamburguesería con sistema de gestión de pedidos y menú interactivo. Implementación de base de datos en tiempo real, optimización SEO avanzada y diseño responsivo para ofrecer una experiencia de usuario fluida en todos los dispositivos.</p>
+          <button *ngIf="clampedDescs.has(3)" type="button" class="desc-toggle" (click)="toggleDesc(3)">{{ lang === 'es' ? (expandedDescs.has(3) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(3) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">JS</span><span class="tag">Supabase</span><span class="tag">SEO</span></div>
+          <div class="proj-links">
+            <a href="https://paginahamburgueseria.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <span id="proyecto-card-btn-3">Ver sitio en vivo</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-    <div class="proyecto-card">
-      <h3 id="proyecto-card-title-5" class="proyecto-titulo-acento">Portfolio 3D</h3>
+      <!-- Moon Pixel -->
+      <article class="proj-card" *ngIf="filter === 'all' || ['web'].includes(filter)" style="--pc:#8a2be2">
+        <div class="proj-img"><img src="assets/logos/moonpixelcap.png" alt="Moon Pixel"></div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title-4">Moon Pixel - Landing Page Profesional</h3>
+            <span class="status">{{ lang === 'es' ? 'Producción' : 'Production' }}</span>
+          </div>
+          <p id="proyecto-card-desc-4" data-desc="4" (click)="toggleDesc(4)" [class.line-clamp]="!expandedDescs.has(4)" [class.expanded]="expandedDescs.has(4)">Desarrollo completo de landing page multipágina con 7 secciones interactivas. Implementación de diseño responsive mobile-first, animaciones on-scroll con Intersection Observer API, formulario de contacto integrado con Netlify Forms y protección anti-spam, junto con optimización SEO avanzada y efectos parallax.</p>
+          <button *ngIf="clampedDescs.has(4)" type="button" class="desc-toggle" (click)="toggleDesc(4)">{{ lang === 'es' ? (expandedDescs.has(4) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(4) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Netlify Forms</span></div>
+          <div class="proj-links">
+            <a href="https://moonpixel.com.ar/" target="_blank" rel="noopener noreferrer">
+            <span id="proyecto-card-btn-4">Ver sitio en vivo</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-  <div class="proyecto-imagen-scroll-container" style="box-shadow:0 0 24px 4px #19f3ff, 0 4px 24px rgba(0,0,0,0.18);border:4px solid #19f3ff;">
-    <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer">
-      <img src="assets/logos/3d.png" alt="Portfolio 3D" class="proyecto-imagen-real" />
-    </a>
-  </div>
-      <p id="proyecto-card-desc-5" class="proyecto-descripcion">
-        Landing page de mi portfolio de proyectos 3D, enfocada en una presentación visual clara del trabajo, navegación simple y despliegue optimizado para web.
-      </p>
-      <div class="proyecto-badges">
-        <span class="badge badge-html">HTML5</span>
-        <span class="badge badge-css">CSS3</span>
-        <span class="badge badge-js">JavaScript</span>
-        <span class="badge badge-netlify">Netlify</span>
-      </div>
-      <div class="proyecto-rol"><strong id="proyecto-card-rol-label-5">Rol: </strong> <span id="proyecto-card-rol-5">Frontend Developer & 3D Artist</span></div>
-      <div class="proyecto-resp"><strong id="proyecto-card-resp-label-5">Responsabilidades: </strong> <span id="proyecto-card-resp-5">Diseño y desarrollo de la landing page, estructura de contenido, optimización visual y despliegue en Netlify.</span></div>
-      <div class="proyecto-botones">
-        <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="btn-proyecto" id="proyecto-card-btn-5">Ver Proyecto</a>
-      </div>
-    </div>
+      <!-- Gestoría -->
+      <article class="proj-card" *ngIf="filter === 'all' || ['web'].includes(filter)" style="--pc:#22c55e">
+        <div class="proj-img"><img src="assets/logos/estudio-guevara.jpg" alt="Gestoría Integral"></div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title-6">Gestoria Integral</h3>
+            <span class="status">{{ lang === 'es' ? 'Producción' : 'Production' }}</span>
+          </div>
+          <p id="proyecto-card-desc-6" data-desc="6" (click)="toggleDesc(6)" [class.line-clamp]="!expandedDescs.has(6)" [class.expanded]="expandedDescs.has(6)">Sitio web profesional para Gestoria Integral, desarrollado desde cero con enfoque en claridad de servicios, presencia digital y experiencia de usuario responsive.</p>
+          <button *ngIf="clampedDescs.has(6)" type="button" class="desc-toggle" (click)="toggleDesc(6)">{{ lang === 'es' ? (expandedDescs.has(6) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(6) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span></div>
+          <div class="proj-links">
+            <a href="https://estudioguevara.com.ar/" target="_blank" rel="noopener noreferrer">
+            <span id="proyecto-card-btn-6">Ver sitio en vivo</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-    <div class="proyecto-card">
-      <h3 id="proyecto-card-title-6" class="proyecto-titulo-acento">Gestoria Integral</h3>
+      <!-- Portfolio 3D -->
+      <article class="proj-card" *ngIf="filter === 'all' || ['3d', 'web'].includes(filter)" style="--pc:#19f3ff">
+        <div class="proj-img"><img src="assets/logos/3d.png" alt="Portfolio 3D"></div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title-5">Portfolio 3D</h3>
+            <span class="status">{{ lang === 'es' ? 'En progreso' : 'In progress' }}</span>
+          </div>
+          <p id="proyecto-card-desc-5" data-desc="5" (click)="toggleDesc(5)" [class.line-clamp]="!expandedDescs.has(5)" [class.expanded]="expandedDescs.has(5)">Landing page de mi portfolio de proyectos 3D, enfocada en una presentación visual clara del trabajo, navegación simple y despliegue optimizado para web.</p>
+          <button *ngIf="clampedDescs.has(5)" type="button" class="desc-toggle" (click)="toggleDesc(5)">{{ lang === 'es' ? (expandedDescs.has(5) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(5) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">Three.js</span><span class="tag">Angular</span><span class="tag">Blender</span></div>
+          <div class="proj-links">
+            <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer">
+            <span id="proyecto-card-btn-5">Ver Proyecto</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-  <div class="proyecto-imagen-scroll-container" style="box-shadow:0 0 24px 4px #22c55e, 0 4px 24px rgba(0,0,0,0.18);border:4px solid #22c55e;">
-    <a href="https://estudioguevara.com.ar/" target="_blank" rel="noopener noreferrer">
-      <img src="assets/logos/estudio-guevara.jpg" alt="Gestoria Integral" class="proyecto-imagen-real" />
-    </a>
-  </div>
-      <p id="proyecto-card-desc-6" class="proyecto-descripcion">
-        Sitio web profesional para Gestoria Integral, desarrollado desde cero con enfoque en claridad de servicios, presencia digital y experiencia de usuario responsive.
-      </p>
-      <div class="proyecto-badges">
-        <span class="badge badge-html">HTML5</span>
-        <span class="badge badge-css">CSS3</span>
-        <span class="badge badge-js">JavaScript</span>
-      </div>
-      <div class="proyecto-rol"><strong id="proyecto-card-rol-label-6">Rol: </strong> <span id="proyecto-card-rol-6">Full Stack Developer</span></div>
-      <div class="proyecto-resp"><strong id="proyecto-card-resp-label-6">Responsabilidades: </strong> <span id="proyecto-card-resp-6">Diseño, desarrollo frontend y backend, estructura completa del sitio, implementación visual, optimización y despliegue.</span></div>
-      <div class="proyecto-botones">
-        <a href="https://estudioguevara.com.ar/" target="_blank" rel="noopener noreferrer" class="btn-proyecto" id="proyecto-card-btn-6">Ver Proyecto</a>
-      </div>
-    </div>
-
-    <div class="proyecto-card">
-      <h3 id="proyecto-card-title-7" class="proyecto-titulo-acento">QuizZIA - Generador de Quiz con IA</h3>
-
-  <div class="proyecto-imagen-scroll-container" style="box-shadow:0 0 24px 4px #f43f5e, 0 4px 24px rgba(0,0,0,0.18);border:4px solid #f43f5e;">
-    <a href="https://silver-cupcake-8a5444.netlify.app/" target="_blank" rel="noopener noreferrer">
-      <img src="assets/logos/quizzia.png" alt="QuizZIA - Generador de Quiz con IA" class="proyecto-imagen-real" />
-    </a>
-  </div>
-      <p id="proyecto-card-desc-7" class="proyecto-descripcion">
-        Desarrollo full-stack de plataforma educativa de quizzes con IA, con generación automática de preguntas por tema y niveles de dificultad, lógica de juego con vidas y progreso por etapas, explicaciones pedagógicas ante errores, carga de contenido desde PDF y arquitectura segura en backend con rate limiting, validación de inputs, token de acceso y protección anti prompt-injection. Integración de múltiples proveedores LLM (Groq, OpenAI y Gemini), cache en memoria para optimización de costo/rendimiento y despliegue cloud de frontend y API.
-      </p>
-      <div class="proyecto-badges">
-        <span class="badge badge-react">React</span>
-        <span class="badge badge-vite">Vite</span>
-        <span class="badge badge-ai">IA</span>
-        <span class="badge badge-js">JavaScript</span>
-        <span class="badge">Node.js</span>
-        <span class="badge">Express</span>
-        <span class="badge">Groq API</span>
-        <span class="badge">OpenAI API</span>
-        <span class="badge">Google Gemini API</span>
-        <span class="badge">Multer</span>
-        <span class="badge">pdf-parse</span>
-        <span class="badge badge-netlify">Netlify</span>
-        <span class="badge">Render</span>
-        <span class="badge badge-git">Git</span>
-        <span class="badge">REST API</span>
-        <span class="badge">Seguridad backend</span>
-      </div>
-      <div class="proyecto-rol"><strong id="proyecto-card-rol-label-7">Rol: </strong> <span id="proyecto-card-rol-7">Full Stack Developer</span></div>
-      <div class="proyecto-resp"><strong id="proyecto-card-resp-label-7">Responsabilidades: </strong> <span id="proyecto-card-resp-7">Desarrollo de aplicación full-stack de quizzes con IA, implementación de UI en React con lógica de juego por niveles, construcción de API REST en Node.js/Express, integración de modelos LLM (Groq/OpenAI/Gemini), procesamiento de PDFs para generación de contenido, aplicación de seguridad backend (rate limit, token, validación y sanitización, anti prompt-injection), implementación de cache en memoria para optimización de costos, manejo de errores/reintentos y despliegue en Netlify + Render.</span></div>
-      <div class="proyecto-botones">
-        <a href="https://silver-cupcake-8a5444.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-proyecto" id="proyecto-card-btn-7">Ver Proyecto</a>
-        <a href="https://github.com/watefa1/quiz-ai-app" target="_blank" rel="noopener noreferrer" class="btn-codigo">
-          <svg class="github-icon" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-          </svg>
-          <span id="proyecto-github-btn-7">Ver Código</span>
-        </a>
-      </div>
+      <!-- SaaS Veterinaria -->
+      <article class="proj-card" *ngIf="filter === 'all' || ['ia', 'web'].includes(filter)" style="--pc:#7a5cff">
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 id="proyecto-card-title-8">Gestión Mascotas — SaaS Veterinaria</h3>
+            <span class="status">{{ lang === 'es' ? 'En desarrollo' : 'In development' }}</span>
+          </div>
+          <p id="proyecto-card-desc-8" data-desc="8" (click)="toggleDesc(8)" [class.line-clamp]="!expandedDescs.has(8)" [class.expanded]="expandedDescs.has(8)">Plataforma multi-tenant para la gestión integral de clínicas veterinarias: pacientes, turnos e historias clínicas. Arquitectura propia, infraestructura y despliegue productivo. En desarrollo activo.</p>
+          <button *ngIf="clampedDescs.has(8)" type="button" class="desc-toggle" (click)="toggleDesc(8)">{{ lang === 'es' ? (expandedDescs.has(8) ? 'Ver menos' : 'Ver más') : (expandedDescs.has(8) ? 'Read less' : 'Read more') }}</button>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">Angular</span><span class="tag">MySQL</span><span class="tag">Multi-tenancy</span></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>

@@ -1,11 +1,80 @@
-<section id="app-sobre-mi" class="sobre-mi-container">
-  <div class="sobre-mi-content">
-    <div class="foto-perfil">
-      <img src="/images/foto.jpeg" alt="Gabriel Guevara">
+<section class="band" id="sobre-mi-section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Sobre mí</div>
+      <h2 class="sec-title" id="sobre-mi-title">Sobre mí</h2>
     </div>
-    <div class="texto-sobre-mi">
-      <h2 id="sobre-mi-title">Sobre mí</h2>
-      <p id="sobre-mi-desc">Me entusiasma asumir nuevos desafíos que impulsen mi crecimiento profesional. Disfruto trabajar en equipo, aportar ideas creativas y desarrollar soluciones eficientes que combinen funcionalidad y buen diseño. Mi objetivo es fortalecer mis habilidades técnicas y mantenerme actualizado con las tecnologías más relevantes para cada proyecto.</p>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p id="sobre-mi-bio1">
+          {{ lang === 'es'
+            ? 'Soy desarrollador Full Stack de Buenos Aires, Argentina. Me especializo en aplicaciones web, REST APIs e integraciones entre sistemas, con experiencia profesional en PHP (CodeIgniter), JavaScript, Angular y Go, e infraestructura y deploys en AWS.'
+            : "I'm a Full Stack developer from Buenos Aires, Argentina. I specialize in web applications, REST APIs and system integrations, with professional experience in PHP (CodeIgniter), JavaScript, Angular and Go, plus AWS infrastructure and deployments." }}
+        </p>
+        <p id="sobre-mi-bio2">
+          {{ lang === 'es'
+            ? 'Como fundador de MoonPixel manejo además el ciclo completo de proyectos freelance: del relevamiento inicial al deploy, hosting y mantenimiento. Aprendiz constante, con foco en usabilidad, performance y arquitectura robusta.'
+            : 'As founder of MoonPixel I also handle the full freelance project lifecycle: from initial requirements to deployment, hosting and maintenance. A constant learner focused on usability, performance and solid architecture.' }}
+        </p>
+        <div class="fact-list">
+          <div class="fact">
+            <div>
+              <span>{{ lang === 'es' ? 'Ubicación' : 'Location' }}</span>
+              <b>Buenos Aires, AR</b>
+            </div>
+          </div>
+          <div class="fact">
+            <div>
+              <span>{{ lang === 'es' ? 'Estudiando' : 'Studying' }}</span>
+              <b>{{ lang === 'es' ? 'Ing. en Sistemas (UTN)' : 'Systems Engineering (UTN)' }}</b>
+            </div>
+          </div>
+          <div class="fact">
+            <div>
+              <span>{{ lang === 'es' ? 'Idiomas' : 'Languages' }}</span>
+              <b>{{ lang === 'es' ? 'Español nativo · EN B1' : 'Native Spanish · EN B1' }}</b>
+            </div>
+          </div>
+          <div class="fact">
+            <div>
+              <span>{{ lang === 'es' ? 'Stack principal' : 'Main stack' }}</span>
+              <b>PHP · Go · JavaScript · Vue</b>
+            </div>
+          </div>
+        </div>
+        <div class="soft-title">{{ lang === 'es' ? 'Soft skills' : 'Soft skills' }}</div>
+        <div class="pills">
+          <span class="pill" *ngFor="let s of softSkills">{{ lang === 'es' ? s.es : s.en }}</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="soft-title" style="margin-top:0">{{ lang === 'es' ? 'Cuando no estoy programando' : 'When I am not coding' }}</div>
+        <div class="hobby">
+          <div>
+            <b>3D Environment Design</b>
+            <p>{{ lang === 'es'
+              ? 'Escenas realistas y estilizadas en Blender. Mucho de eso vive en mi portfolio 3D interactivo.'
+              : 'Realistic and stylized scenes in Blender. Much of it lives in my interactive 3D portfolio.' }}</p>
+            <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer">{{ lang === 'es' ? 'Ver 3D portfolio ↗' : 'View 3D portfolio ↗' }}</a>
+          </div>
+        </div>
+        <div class="hobby">
+          <div>
+            <b>{{ lang === 'es' ? 'Nuevas tecnologías' : 'New technologies' }}</b>
+            <p>{{ lang === 'es'
+              ? 'Experimentación con IA e integraciones, y arquitectura de backend.'
+              : 'Experimenting with AI and integrations, and backend architecture.' }}</p>
+          </div>
+        </div>
+        <div class="hobby">
+          <div>
+            <b>{{ lang === 'es' ? 'Familia' : 'Family' }}</b>
+            <p>{{ lang === 'es'
+              ? 'Tiempo de calidad con mi familia y Luna, el gato que inspiró a mi asistente IA.'
+              : 'Quality time with my family and Luna, the cat who inspired my AI assistant.' }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

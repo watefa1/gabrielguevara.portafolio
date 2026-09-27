@@ -1,4 +1,4 @@
-﻿import { Component, Inject, PLATFORM_ID, Input, OnInit, ViewChild, ElementRef, AfterViewChecked } from "@angular/core";
+﻿import { Component, Inject, PLATFORM_ID, Input, OnInit, ViewChild, ElementRef, AfterViewChecked, NgZone } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { isPlatformBrowser } from "@angular/common";
 
@@ -30,6 +30,19 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   private faq: { question: string, answer: string }[] = [];
   private portfolioLang: string = 'en';
   private welcomeBubbleTimer: any = null;
+  private readonly lunaOpenListener = () => {
+    if (!this.isOpen) this.toggleChat();
+  };
+
+  // Respuestas grabadas para las sugerencias: no consumen tokens del asistente
+  private readonly recordedReplies: Record<string, string> = {
+    "¿Cuáles son los hobbies de Gabriel?": "Blender y diseño de entornos 3D (mucho de eso vive en 3d.gguevara.dev), explorar nuevas tecnologías como IA y backend, y tiempo en familia con Thaylys y Luna, su gato.",
+    "¿Qué tecnologías conoce Gabriel?": "PHP (CodeIgniter 3) —su stack principal—, Go, Java con Spring Boot, Node.js, Angular, TypeScript, Vue.js, MySQL/MariaDB/PostgreSQL y AWS (EC2, ECS, Amplify, Lambda).",
+    "¿Quién es Luna?": "Soy yo: el gato de Gabriel (9 años, tranquilo y curioso) y el asistente IA de este portfolio, construido con Netlify Functions sobre una base de conocimiento estructurada.",
+    "What are Gabriel's hobbies?": "Blender and 3D environment design (a lot of it lives at 3d.gguevara.dev), exploring new technologies like AI and backend architecture, and family time with Thaylys and Luna, his cat.",
+    "What technologies does Gabriel know?": "PHP (CodeIgniter 3) — his main stack —, Go, Java with Spring Boot, Node.js, Angular, TypeScript, Vue.js, MySQL/MariaDB/PostgreSQL and AWS (EC2, ECS, Amplify, Lambda).",
+    "Who is Luna?": "That's me: Gabriel's cat (9 years old, calm and curious) and this portfolio's AI assistant, built with Netlify Functions on top of a structured knowledge base."
+  };
   
   private normalizeText(text: string): string {
     if (!text) return "";
@@ -42,7 +55,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
       .trim();
   }
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: object, private ngZone: NgZone) {
   }
 
   private syncPortfolioLang(): void {
@@ -68,23 +81,36 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
     if (isPlatformBrowser(this.platformId)) {
       this.syncPortfolioLang();
       sessionStorage.removeItem('luna-bubble-dismissed');
-      this.showWelcomeBubble = true;
 
-      if (this.showWelcomeBubble && !this.isOpen) {
+      // Burbuja: aparece a los 2s y se va a los 9s. Manipula clases fuera de la
+      // zona para no mantener tareas pendientes (NG0506) ni depender del CD.
+      this.ngZone.runOutsideAngular(() => {
         this.welcomeBubbleTimer = setTimeout(() => {
-          this.showWelcomeBubble = false;
-          sessionStorage.setItem('luna-bubble-dismissed', 'true');
-        }, 15000);
-      }
+          const bubble = document.querySelector('.welcome-bubble');
+          if (!bubble) return;
+          bubble.classList.add('show');
+          this.welcomeBubbleTimer = setTimeout(() => {
+            bubble.classList.remove('show');
+            bubble.classList.add('hide');
+            sessionStorage.setItem('luna-bubble-dismissed', 'true');
+            setTimeout(() => { (bubble as HTMLElement).style.display = 'none'; }, 400);
+          }, 7000);
+        }, 2000);
+      });
 
       fetch('/assets/faq.json')
         .then(res => res.json())
         .then(data => { this.faq = data; })
         .catch(err => console.warn('Failed to load local FAQ:', err));
+
+      window.addEventListener('abrir-luna', this.lunaOpenListener);
     }
   }
 
   ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('abrir-luna', this.lunaOpenListener);
+    }
     if (this.welcomeBubbleTimer) {
       clearTimeout(this.welcomeBubbleTimer);
     }
@@ -123,9 +149,25 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   }
 
   async sendSuggestion(suggestion: string): Promise<void> {
+    this.showSuggestions = false; // Ocultar sugerencias al hacer clic
+
+    const recorded = this.recordedReplies[suggestion];
+    if (recorded !== undefined) {
+      // Respuesta grabada local: no se llama a la función de IA
+      this.messages.push({ text: suggestion, isUser: true });
+      this.shouldScroll = true;
+      this.isLoading = true;
+      this.loadingMessage = "estoy buscando la respuesta...";
+      // Executor form: el lib del proyecto (pre-ES2024) no tiene Promise.withResolvers
+      await new Promise(resolve => setTimeout(resolve, 600));
+      this.isLoading = false;
+      this.messages.push({ text: recorded, isUser: false });
+      this.shouldScroll = true;
+      return;
+    }
+
     this.newMessage = suggestion;
     await this.sendMessage();
-    this.showSuggestions = false; // Ocultar sugerencias al hacer clic
   }
 
   async sendMessage(): Promise<void> {

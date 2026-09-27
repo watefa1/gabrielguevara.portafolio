@@ -1,70 +1,101 @@
-<section id="app-contacto">
-  <form class="glass-form" action="https://formspree.io/f/xblazovg" method="POST">
-   <h2 id="contacto-title">Contacto</h2>
-  <label id="contacto-label-email" for="email">Email</label>
-  <input type="email" id="email" name="email" required placeholder="tu@email.com" data-ph="contacto-ph-email">
+<section class="band" id="contacto-section">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="sec-kicker">{{ lang === 'es' ? 'Contacto' : 'Contact' }}</div>
+        <h3 id="contacto-title">¿Sumás un Full Stack a tu equipo?</h3>
+        <p>
+          {{ lang === 'es'
+            ? 'Abierto a oportunidades en relación de dependencia, remoto o presencial en Buenos Aires. Descargá mi CV o escribime directo — respondo rápido.'
+            : "Open to full-time opportunities, remote or onsite in Buenos Aires. Download my CV or reach out directly — I reply fast." }}
+        </p>
+        <div class="contact-links">
+          <a class="clink" href="mailto:gaby2001@live.com.ar">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.68-.5L12 11.35 19.32 5H4.68zM20 6.87l-7.35 5.88a1 1 0 0 1-1.3 0L4 6.87V18.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V6.87z"/></svg>
+            </div>
+            <div><b>Email</b><span>gaby2001@live.com.ar</span></div>
+          </a>
+          <a class="clink" href="https://www.linkedin.com/in/gabriel-guevara-g/" target="_blank" rel="noopener noreferrer">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+            </div>
+            <div><b>LinkedIn</b><span>linkedin.com/in/gabriel-guevara-g</span></div>
+          </a>
+          <a class="clink" href="tel:+541133847040">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z"/></svg>
+            </div>
+            <div><b>{{ lang === 'es' ? 'Teléfono' : 'Phone' }}</b><span>+54 11 3384-7040</span></div>
+          </a>
+          <a class="clink" href="https://github.com/watefa1" target="_blank" rel="noopener noreferrer">
+            <div class="ico">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 .71.71 1.29 1.26 1.06.28-.12.52-.23.71-.32C13.75 14.47 16 11.5 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            </div>
+            <div><b>GitHub</b><span>github.com/watefa1</span></div>
+          </a>
+          <a class="clink" href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.7 21.5 7v10L12 22.3 2.5 17V7L12 1.7zm0 2.3L5 7.9l7 3.9 7-3.9L12 4zm-7.5 5.6v6l6.5 3.6v-6l-6.5-3.6zm15 0-6.5 3.6v6l6.5-3.6v-6z"/></svg>
+            </div>
+            <div><b>Portfolio 3D</b><span>3d.gguevara.dev</span></div>
+          </a>
+        </div>
+      </div>
 
-  <label id="contacto-label-subject" for="subject">Asunto</label>
-  <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje" data-ph="contacto-ph-subject">
+      <form class="glass-form reveal" action="https://formspree.io/f/xblazovg" method="POST">
+        <div class="form-row">
+          <div>
+            <label id="contacto-label-email" for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com" data-ph="contacto-ph-email">
+          </div>
+          <div>
+            <label id="contacto-label-subject" for="subject">Asunto</label>
+            <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje" data-ph="contacto-ph-subject">
+          </div>
+        </div>
+        <div>
+          <label id="contacto-label-message" for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Mensaje..." data-ph="contacto-ph-message"></textarea>
+        </div>
 
-  <label id="contacto-label-message" for="message">Mensaje</label>
-  <textarea id="message" name="message" rows="5" required placeholder="Mensaje..." data-ph="contacto-ph-message"></textarea>
-
-  
-  <button type="submit" id="contacto-btn" class="btn-proyecto" style="margin-top:0.7em;" [disabled]="sending">
-    <span *ngIf="!sending">{{ lang === 'es' ? 'Enviar' : 'Send' }}</span>
-    <span *ngIf="sending">{{ lang === 'es' ? 'Enviando...' : 'Sending...' }}</span>
-  </button>
-  <div *ngIf="sent" style="color:#19f3ff; text-align:center; margin-top:0.7em; font-weight:bold;">
-    {{ lang === 'es' ? '¡Mensaje enviado con éxito!' : 'Message sent successfully!' }}
+        <button type="submit" id="contacto-btn" class="btn-submit" [disabled]="sending">
+          <span *ngIf="!sending">{{ lang === 'es' ? 'Enviar' : 'Send' }}</span>
+          <span *ngIf="sending">{{ lang === 'es' ? 'Enviando...' : 'Sending...' }}</span>
+        </button>
+        <div class="form-msg ok" *ngIf="sent">
+          {{ lang === 'es' ? '¡Mensaje enviado con éxito!' : 'Message sent successfully!' }}
+        </div>
+        <div class="form-msg err" *ngIf="error">
+          {{ lang === 'es' ? 'Ocurrió un error. Intenta nuevamente.' : 'An error occurred. Please try again.' }}
+        </div>
+        <div class="priv-row">
+          <input type="checkbox" id="priv-check" name="priv-check" required>
+          <label for="priv-check">
+            <span *ngIf="lang === 'es'">He leído y acepto la </span>
+            <span *ngIf="lang === 'en'">I have read and accept the </span>
+            <a href="#" class="priv-link" (click)="$event.preventDefault(); showPrivModal=true">
+              {{ lang === 'es' ? 'política de privacidad' : 'privacy policy' }}
+            </a>
+          </label>
+        </div>
+      </form>
+    </div>
   </div>
-  <div *ngIf="error" style="color:#ff2f2f; text-align:center; margin-top:0.7em; font-weight:bold;">
-    {{ lang === 'es' ? 'Ocurrió un error. Intenta nuevamente.' : 'An error occurred. Please try again.' }}
-  </div>
-  <div style="display:flex;align-items:center;justify-content:center;gap:0.7em;margin-top:1.2em;">
-    <input type="checkbox" id="priv-check" name="priv-check" required style="accent-color:#19f3ff;width:1.2em;height:1.2em;">
-    <label for="priv-check" style="font-size:0.98em;cursor:pointer;align-items:center;gap:0.3em;">
-      <span *ngIf="lang === 'es'">He leído y acepto la </span>
-      <span *ngIf="lang === 'en'">I have read and accept the </span>
-      <a href="#" class="priv-link" (click)="$event.preventDefault(); showPrivModal=true" style="color:#ffffff; text-decoration:underline; font-size:0.98em; margin-left:2px;">
-        {{ lang === 'es' ? 'política de privacidad' : 'privacy policy' }}
-      </a>
-    </label>
-  </div>
-</form>
+</section>
 
-<div class="priv-modal" *ngIf="showPrivModal" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;">
-  <div style="background:#222;padding:2rem 1.5rem;border-radius:16px;max-width:400px;color:#fff;box-shadow:0 8px 32px #19f3ff44;position:relative;">
-    <button (click)="showPrivModal=false" style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.5em;color:#19f3ff;cursor:pointer;">&times;</button>
-  <div *ngIf="lang === 'es'">
-      <h3 style="margin-bottom:1rem;">Política de privacidad</h3>
+<div class="priv-modal" *ngIf="showPrivModal">
+  <div class="priv-card">
+    <button class="close-modal-btn" (click)="showPrivModal=false" aria-label="Cerrar">&times;</button>
+    <div *ngIf="lang === 'es'">
+      <h3>Política de privacidad</h3>
       <p>El email proporcionado será utilizado únicamente para responder a tus consultas. No se compartirá con terceros ni se usará para fines comerciales. Tu información será tratada con estricta confidencialidad y solo se almacenará el tiempo necesario para gestionar tu consulta.</p>
       <p>Si tienes dudas sobre el tratamiento de tus datos, puedes consultarme directamente.</p>
     </div>
-  <div *ngIf="lang === 'en'">
-      <h3 style="margin-bottom:1rem;">Privacy Policy</h3>
-      <p>The email you provide will be used solely to respond to your inquiries. It will not be shared with third parties or used for commercial purposes. Your information will be handled with strict confidentiality and only stored as long as needed to manage your request.</p>
+    <div *ngIf="lang === 'en'">
+      <h3>Privacy Policy</h3>
+      <p>The email you provide will be used solely to respond to your inquiries. It will not be shared with third parties or used for commercial purposes. Your information will be handled with strict confidentiality and only stored as long as needed to manage your inquiry.</p>
       <p>If you have questions about data handling, feel free to ask me directly.</p>
     </div>
   </div>
 </div>
-
- <p id="contacto-social-label">O podes encontrarme en:</p>
-  <div class="social-buttons">
-    <a href="https://www.linkedin.com/in/gabriel-guevara-g/" target="_blank" class="social-btn linkedin-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.205 24 24 23.227 24 22.271V1.729C24 .774 23.205 0 22.225 0zM7.088 20.452H3.545V9H7.09v11.452H7.088zM5.317 7.572c-1.13 0-2.045-.918-2.045-2.048 0-1.13.915-2.048 2.045-2.048 1.127 0 2.042.918 2.042 2.048 0 1.13-.915 2.048-2.042 2.048zM20.452 20.452h-3.544v-5.605c0-1.336-.026-3.057-1.863-3.057-1.864 0-2.15 1.455-2.15 2.957v5.705h-3.545V9h3.404v1.561h.048c.474-.897 1.632-1.844 3.36-1.844 3.595 0 4.259 2.368 4.259 5.451v6.284z"/>
-      </svg>
-    </a>
-
-    <a href="https://github.com/watefa1" target="_blank" class="social-btn github-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.303-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.656 1.653.244 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.103.823 2.222 0 1.604-.014 2.896-.014 3.286 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-      </svg>
-    </a>
-
-    <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-3d" aria-label="Portfolio 3D">
-      <span>3D</span>
-    </a>
-  </div>
-</section>

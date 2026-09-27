@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -8,9 +8,9 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './contacto.html',
   styleUrl: './contacto.css'
 })
-export class Contacto implements OnInit {
+export class Contacto {
+  @Input() lang: 'es' | 'en' = 'es';
   showPrivModal = false;
-  lang: 'es' | 'en' = 'es';
   sending = false;
   sent = false;
   error = false;
@@ -19,11 +19,7 @@ export class Contacto implements OnInit {
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
-    
-    this.lang = (window as any).lang || 'es';
-    (window as any).setLangContacto = (lang: 'es' | 'en') => {
-      this.lang = lang;
-    };
+
     // Interceptar el submit del formulario
     setTimeout(() => {
       const form = document.querySelector('.glass-form') as HTMLFormElement;

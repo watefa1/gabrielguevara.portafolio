@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
   templateUrl: './skills.html',
-  styleUrls: ['../sobre-mi/sobre-mi.css', './skills-cv-container.css']
+  styleUrls: ['./skills-cv-container.css']
 })
-export class Skills {}
+export class Skills {
+  @Input() lang: 'es' | 'en' = 'es';
+}

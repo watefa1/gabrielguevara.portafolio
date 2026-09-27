@@ -1,38 +1,86 @@
-<section id="app-skills" class="skills-cv-container">
-  <h2 class="skills-title" id="skills-title">Skills</h2>
-  <div class="skills-list">
-    <div class="skill-badge" id="skill-php">PHP</div>
-    <div class="skill-badge" id="skill-html">HTML5</div>
-    <div class="skill-badge" id="skill-css">CSS</div>
-    <div class="skill-badge" id="skill-mysql">MySql</div>
-    <div class="skill-badge" id="skill-rest-api">API REST</div>
-    <div class="skill-badge" id="skill-vue">Vue.js</div>
-    <div class="skill-badge" id="skill-dotnet">.NET</div>
-    <div class="skill-badge" id="skill-csharp">C#</div>
-    <div class="skill-badge" id="skill-js">JavaScript</div>
-    <div class="skill-badge" id="skill-sqlserver">SQL Server</div>
-    <div class="skill-badge" id="skill-seo">SEO</div>
-    <div class="skill-badge" id="skill-uiux">UI/UX</div>
-    <div class="skill-badge" id="skill-angular">Angular</div>
-    <div class="skill-badge" id="skill-react">React</div>
-    <div class="skill-badge" id="skill-three">Three.js</div>
-    <div class="skill-badge" id="skill-fiber">React Three Fiber</div>
-    <div class="skill-badge" id="skill-vite">Vite</div>
-    <div class="skill-badge" id="skill-netlify">Netlify</div>
-    <div class="skill-badge" id="skill-docker">Docker</div>
-    <div class="skill-badge" id="skill-mariadb">MariaDB</div>
-    <div class="skill-badge" id="skill-codeigniter">Codeigniter</div>
-    <div class="skill-badge" id="skill-node">Node.js</div>
-    <div class="skill-badge" id="skill-express">Express</div>
-    <div class="skill-badge" id="skill-groq">Groq API</div>
-    <div class="skill-badge" id="skill-openai">OpenAI API</div>
-    <div class="skill-badge" id="skill-gemini">Google Gemini API</div>
-    <div class="skill-badge" id="skill-multer">Multer</div>
-    <div class="skill-badge" id="skill-pdfparse">pdf-parse</div>
-    <div class="skill-badge" id="skill-render">Render</div>
-    <div class="skill-badge" id="skill-git">Git</div>
-    <div class="skill-badge" id="skill-backend-security">Seguridad backend</div>
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Skills</div>
+      <h2 class="sec-title" id="skills-title">Skills</h2>
+      <p class="sec-sub">
+        {{ lang === 'es'
+          ? 'Lenguajes, frameworks e infraestructura con los que trabajo día a día, en producción.'
+          : 'Languages, frameworks and infrastructure I work with day to day, in production.' }}
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skycard reveal">
+        <h4>{{ lang === 'es' ? 'Backend' : 'Backend' }}</h4>
+        <div class="pills">
+          <span class="pill" id="skill-php">PHP</span>
+          <span class="pill" id="skill-codeigniter">Codeigniter</span>
+          <span class="pill">Go</span>
+          <span class="pill">Java · Spring Boot</span>
+          <span class="pill" id="skill-node">Node.js</span>
+          <span class="pill" id="skill-express">Express</span>
+          <span class="pill" id="skill-dotnet">.NET</span>
+        </div>
+      </div>
+      <div class="skycard reveal">
+        <h4>Frontend</h4>
+        <div class="pills">
+          <span class="pill" id="skill-angular">Angular</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill" id="skill-js">JavaScript</span>
+          <span class="pill" id="skill-vue">Vue.js</span>
+          <span class="pill" id="skill-html">HTML5</span>
+          <span class="pill" id="skill-css">CSS</span>
+          <span class="pill" id="skill-three">Three.js</span>
+        </div>
+      </div>
+      <div class="skycard reveal">
+        <h4>{{ lang === 'es' ? 'Bases de datos' : 'Databases' }}</h4>
+        <div class="pills">
+          <span class="pill" id="skill-mysql">MySql</span>
+          <span class="pill" id="skill-mariadb">MariaDB</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill" id="skill-sqlserver">SQL Server</span>
+        </div>
+      </div>
+      <div class="skycard reveal">
+        <h4>{{ lang === 'es' ? 'Cloud & Infra' : 'Cloud & Infra' }}</h4>
+        <div class="pills">
+          <span class="pill">AWS EC2</span>
+          <span class="pill">ECS</span>
+          <span class="pill">Amplify</span>
+          <span class="pill">Lambda</span>
+          <span class="pill">CloudWatch</span>
+          <span class="pill">VPS</span>
+          <span class="pill">DNS</span>
+          <span class="pill" id="skill-netlify">Netlify</span>
+        </div>
+      </div>
+      <div class="skycard reveal">
+        <h4>{{ lang === 'es' ? 'Herramientas' : 'Tools' }}</h4>
+        <div class="pills">
+          <span class="pill" id="skill-git">Git</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">GitLab</span>
+          <span class="pill">Postman</span>
+          <span class="pill">Blender</span>
+          <span class="pill" id="skill-docker">Docker</span>
+          <span class="pill" id="skill-vite">Vite</span>
+        </div>
+      </div>
+      <div class="skycard reveal">
+        <h4>{{ lang === 'es' ? 'Prácticas' : 'Practices' }}</h4>
+        <div class="pills">
+          <span class="pill" id="skill-rest-api">API REST</span>
+          <span class="pill" id="skill-backend-security">Seguridad backend</span>
+          <span class="pill">SOLID</span>
+          <span class="pill">Clean Code</span>
+          <span class="pill">PHPUnit · TDD</span>
+          <span class="pill" id="skill-seo">SEO</span>
+          <span class="pill" id="skill-uiux">UI/UX</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <a href="assets/cv_gabrielguevara_es.pdf" download class="btn-proyecto" id="cv-btn-es">Descargar CV</a>
-  <a href="assets/cv-gabriel-guevara.pdf" download class="btn-proyecto" id="cv-btn-en" style="display:none">Download CV</a>
 </section>
