@@ -2,7 +2,7 @@
   publish = "dist/portafolio/browser"
   command = "npm run build"
 [build.environment]
-  NODE_VERSION = "22.18.0"
+  NODE_VERSION = "22.22.0"
 [functions]
   directory = "netlify/functions"
 
