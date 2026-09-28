@@ -17,7 +17,11 @@
 }
 .fact span{color:var(--muted);font-size:.78rem;display:block;line-height:1.35}
 .fact b{font-weight:600;font-size:.86rem;color:var(--text)}
-.soft-title{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);margin:34px 0 14px;font-weight:600}
+.soft-title{
+  display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--accent);font-weight:600;margin:34px 0 14px;
+}
+.soft-title::before{content:'';width:26px;height:1px;background:var(--accent)}
 .pills{display:flex;flex-wrap:wrap;gap:9px}
 .pill{
   padding:7px 15px;border-radius:999px;font-size:.8rem;color:var(--muted);

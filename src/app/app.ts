@@ -89,11 +89,10 @@ export class App implements AfterViewInit {
                 title: "Gabriel Guevara",
                 subtitle: "Hola, soy",
                 subtitle2: "a",
-                desc: "Desarrollador Full Stack con más de 4 años llevando sistemas a producción: en Alephoo trabajo con PHP, Go y Angular sobre AWS, y manejo integraciones de IA aplicada al producto."
+                desc: "Desarrollador Full Stack con más de 4 años llevando sistemas a producción: en Alephoo trabajo con PHP, Go y Angular sobre AWS, y manejo integraciones de IA aplicada al producto. También fundé Moon Pixel, mi emprendimiento de desarrollo web."
             },
             hero: {
-                chip1: "Full Stack en Alephoo",
-                chip3: "Asistente IA Luna integrado"
+                chip1: "Full Stack en Alephoo"
             },
             footer: "© 2026 Gabriel Esteban Guevara",
             sobreMi: {
@@ -195,11 +194,10 @@ export class App implements AfterViewInit {
                 title: "Gabriel Guevara",
                 subtitle: "Hi, I'm",
                 subtitle2: "a",
-                desc: "Full Stack developer with 4+ years taking systems to production: at Alephoo I work with PHP, Go and Angular on AWS, and I build applied-AI integrations."
+                desc: "Full Stack developer with 4+ years taking systems to production: at Alephoo I work with PHP, Go and Angular on AWS, and I build applied-AI integrations. I also run Moon Pixel, my own web development business."
             },
             hero: {
-                chip1: "Full Stack at Alephoo",
-                chip3: "Built-in AI assistant Luna"
+                chip1: "Full Stack at Alephoo"
             },
             footer: "© 2026 Gabriel Esteban Guevara",
             sobreMi: {
@@ -367,7 +365,6 @@ export class App implements AfterViewInit {
             "contacto-btn": t.contacto.btn,
     "skills-title": t.nav.skills,
             "hero-chip-1": t.hero.chip1,
-            "hero-chip-3": t.hero.chip3,
             "proyecto-card-title-8": t.proyectos.cardTitle8,
             "proyecto-card-desc-8": t.proyectos.cardDesc8,
         };

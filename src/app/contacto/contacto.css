@@ -5,13 +5,15 @@
 }
 .sec-kicker::before{content:'';width:26px;height:1px;background:var(--accent)}
 .band{padding:96px 0}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.contact-info h3{font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.2;margin:0 0 14px;color:var(--text)}
-.contact-info>p{color:var(--muted);font-size:.95rem;margin:0 0 26px}
-.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch}
+.contact-info{display:flex;flex-direction:column;justify-content:center}
+.contact-head{margin-bottom:24px}
+.contact-head h3{font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.2;margin:0 0 14px;color:var(--text)}
+.contact-head p{color:var(--muted);font-size:.95rem;margin:0;max-width:640px}
+.contact-links{display:flex;flex-direction:column;gap:14px}
 .clink{
   display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);
-  border-radius:14px;padding:15px 18px;transition:all .2s;
+  border-radius:14px;padding:17px 20px;transition:all .2s;
 }
 .clink:hover{border-color:rgba(25,243,255,.4);transform:translateX(5px)}
 .clink .ico{width:40px;height:40px;flex:none;border-radius:11px;display:grid;place-items:center;background:var(--accent-dim);color:var(--accent)}
@@ -21,30 +23,30 @@
 
 /* formulario */
 .glass-form{
-  position:relative;border-radius:20px;padding:30px;
-  display:flex;flex-direction:column;gap:18px;
+  border-radius:20px;padding:24px;
+  display:flex;flex-direction:column;gap:14px;
   background:linear-gradient(165deg,rgba(25,243,255,.06),rgba(255,255,255,.02) 45%,transparent 80%);
   border:1px solid rgba(25,243,255,.16);
 }
-.glass-form::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:20px 20px 0 0;
-  background:var(--grad);opacity:.7;
-}
-.glass-form label{display:block;font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px}
+.glass-form label{display:block;font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;transition:color .2s}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-row>div:focus-within label,.msg-field:focus-within label{color:var(--accent)}
 .glass-form input,.glass-form textarea{
   width:100%;background:#0a0d12;border:1px solid var(--line-2);border-radius:12px;
   padding:13px 15px;color:var(--text);font-size:.92rem;transition:border-color .2s,box-shadow .2s,background .2s;
 }
+.glass-form input:hover,.glass-form textarea:hover{border-color:rgba(25,243,255,.28)}
 .glass-form input::placeholder,.glass-form textarea::placeholder{color:var(--muted-2)}
 .glass-form input:focus,.glass-form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(25,243,255,.1);background:#0c1016}
-.glass-form textarea{min-height:130px;resize:vertical;line-height:1.55}
+.msg-field{display:flex;flex-direction:column;flex:1}
+.glass-form textarea{min-height:100px;flex:1;resize:vertical;line-height:1.55}
 .btn-submit{
-  width:100%;justify-content:center;margin-top:2px;padding:13px 26px;border-radius:13px;
+  width:100%;justify-content:center;margin-top:2px;padding:12px 26px;border-radius:13px;
   font-size:.95rem;font-weight:600;background:var(--accent);color:#04141a;border:none;cursor:pointer;
   transition:transform .2s,box-shadow .2s,opacity .2s;
 }
 .btn-submit:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 32px rgba(25,243,255,.35)}
+.btn-submit:active:not(:disabled){transform:translateY(0)}
 .btn-submit:disabled{opacity:.6;cursor:default}
 .form-msg{text-align:center;margin:0;font-weight:600;font-size:.88rem}
 .form-msg.ok{color:var(--accent)}
@@ -73,9 +75,16 @@
 @media (max-width:900px){
   .band{padding:72px 0}
   .contact-grid{grid-template-columns:1fr;gap:40px}
+  .contact-info{order:2}
+  .glass-form{order:1}
 }
 @media (max-width:600px){
   .form-row{grid-template-columns:1fr}
+  .contact-links{flex-direction:row;justify-content:center;align-items:center;gap:16px}
+  .clink{padding:0;background:transparent;border:none;transform:none}
+  .clink:hover{transform:translateY(-3px)}
+  .clink>div:last-child{display:none}
+  .clink .ico{width:52px;height:52px;border-radius:50%}
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}

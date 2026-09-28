@@ -86,7 +86,7 @@
         </h1>
         <div class="role">Full Stack Web Developer</div>
         <p class="lead" id="header-desc">
-          Desarrollador Full Stack con más de 4 años llevando sistemas a producción: en Alephoo trabajo con PHP, Go y Angular sobre AWS, y manejo integraciones de IA aplicada al producto.
+          Desarrollador Full Stack con más de 4 años llevando sistemas a producción: en Alephoo trabajo con PHP, Go y Angular sobre AWS, y manejo integraciones de IA aplicada al producto. También fundé Moon Pixel, mi emprendimiento de desarrollo web.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary cv-btn-es" href="assets/Gabriel%20Guevara%20-%20Desarrollador%20FullStack.pdf" download>
@@ -99,8 +99,7 @@
           </a>
           <a href="#app-proyectos" class="btn btn-ghost" *ngIf="lang === 'es'">Ver proyectos</a>
           <a href="#app-proyectos" class="btn btn-ghost" *ngIf="lang === 'en'">View projects</a>
-          <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" *ngIf="lang === 'es'">Portfolio 3D ↗</a>
-          <a href="https://3d.gguevara.dev" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" *ngIf="lang === 'en'">3D Portfolio ↗</a>
+          <a href="https://moonpixel.com.ar" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Moon Pixel ↗</a>
         </div>
         <div class="hero-socials">
           <a href="https://www.linkedin.com/in/gabriel-guevara-g/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -118,8 +117,7 @@
         <div class="photo-glow"></div>
         <div class="photo-frame"><img src="/images/foto.jpeg" alt="Gabriel Guevara"></div>
         <div class="chip-float cf-1" id="hero-chip-1">Full Stack en <b>Alephoo</b></div>
-        <div class="chip-float cf-2"><b>PHP</b> · Go · JavaScript · Vue</div>
-        <div class="chip-float cf-3" id="hero-chip-3">Asistente IA <b>Luna</b> integrado</div>
+        <div class="chip-float cf-2">PHP · Go · JavaScript · Vue</div>
       </div>
     </div>
   </div>
@@ -150,10 +148,14 @@
         <div class="sec-kicker">{{ lang === 'es' ? 'Trayectoria' : 'Career' }}</div>
         <h2 class="sec-title">{{ lang === 'es' ? 'Experiencia y formación' : 'Experience & education' }}</h2>
       </div>
-      <div class="exp-grid">
-        <div class="timeline reveal">
-          <div class="titem">
-            <div class="period">{{ lang === 'es' ? 'SEP 2022 — ACTUALIDAD · REMOTO / PRESENCIAL' : 'SEP 2022 — PRESENT · REMOTE / ONSITE' }}</div>
+      <div class="exp-sub reveal">
+        <div class="sec-kicker">{{ lang === 'es' ? 'Experiencia' : 'Experience' }}</div>
+        <div class="exp-list">
+          <article class="exp-card">
+            <div class="exp-top">
+              <div class="period">{{ lang === 'es' ? 'SEP 2022 · REMOTO / PRESENCIAL' : 'SEP 2022 · REMOTE / ONSITE' }}</div>
+              <span class="badge-now">{{ lang === 'es' ? 'Actual' : 'Current' }}</span>
+            </div>
             <h3>Full Stack Developer</h3>
             <div class="comp">Alephoo</div>
             <p>{{ lang === 'es'
@@ -162,9 +164,12 @@
             <div class="tags">
               <span class="tag">PHP</span><span class="tag">Go</span><span class="tag">AWS</span><span class="tag">REST APIs</span><span class="tag">{{ lang === 'es' ? 'IA aplicada' : 'Applied AI' }}</span>
             </div>
-          </div>
-          <div class="titem">
-            <div class="period">{{ lang === 'es' ? 'SEP 2025 — ACTUALIDAD · REMOTO' : 'SEP 2025 — PRESENT · REMOTE' }}</div>
+          </article>
+          <article class="exp-card">
+            <div class="exp-top">
+              <div class="period">{{ lang === 'es' ? 'SEP 2025 · REMOTO' : 'SEP 2025 · REMOTE' }}</div>
+              <span class="badge-now">{{ lang === 'es' ? 'Actual' : 'Current' }}</span>
+            </div>
             <h3>{{ lang === 'es' ? 'Fundador & Full Stack Dev' : 'Founder & Full Stack Dev' }}</h3>
             <div class="comp">MoonPixel · Freelance</div>
             <p>{{ lang === 'es'
@@ -173,9 +178,12 @@
             <div class="tags">
               <span class="tag">Angular</span><span class="tag">Java · Spring Boot</span><span class="tag">{{ lang === 'es' ? 'Pagos' : 'Payments' }}</span><span class="tag">VPS / DNS</span>
             </div>
-          </div>
+          </article>
         </div>
-        <div class="reveal">
+      </div>
+      <div class="exp-sub reveal">
+        <div class="sec-kicker">{{ lang === 'es' ? 'Formación' : 'Education' }}</div>
+        <div class="edu-list">
           <div class="edu-card">
             <div class="period">{{ lang === 'es' ? '2023 — ACTUALIDAD' : '2023 — PRESENT' }}</div>
             <h4>{{ lang === 'es' ? 'Ingeniería en Sistemas' : 'Systems Engineering' }}</h4>
@@ -232,6 +240,6 @@
 <footer>
   <div class="wrap foot">
     <p><span id="footer-text">© 2026 Gabriel Esteban Guevara</span></p>
-    <span>Buenos Aires, Argentina · Angular + Netlify</span>
+    <span>Buenos Aires, Argentina</span>
   </div>
 </footer>
